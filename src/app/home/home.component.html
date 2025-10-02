@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natural's Samada</title>
+  <link rel="stylesheet" href="home.component.css" />
+</head>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-content">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="img/logotipo.png" alt="Logo Samada" class="logo-img" />
+      <p class="brand-name">NATURAL'S SAMADA</p>
+    </div>
+
+       <!-- Checkbox oculto -->
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+
+    <!-- Label actúa como botón hamburguesa -->
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <!-- Menú + Botones agrupados -->
+    <div class="menu-right">
+      <nav class="nav">
+        <a href="#" class="nav-link active">Inicio</a>
+        <a href="#" class="nav-link">Productos</a>
+        <a href="/MiProjecto/src/app/clientes/clientes.component.html" class="nav-link">Clientes</a>
+        <a href="#" class="nav-link">Proveedores</a>
+        <a href="#" class="nav-link">Ventas</a>
+      </nav>
+      <div class="auth">
+        <a href="#" class="btn ghost">Iniciar Sesión</a>
+        <a href="#" class="btn ghost">Registrarse</a>
+        <a href="#" class="nav-link"></a>
+        <div class="logo">
+          <a href="https://www.ejemplo.com/pagina-de-destino"><img src="img/car.png" alt="Logo Samada" class="car-img" /></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<body>
+
+  <!-- Banner principal -->
+  <section class="banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <h1>Bienestar natural a tu alcance</h1>
+      <p>Descubre el poder de la medicina natural con productos <strong>100% Naturales</strong> de alta calidad. El mejor socio en un
+        plan de vida <strong>saludable.</strong></p>
+      <div class="banner-buttons">
+        <button class="btn btn-outline">Ver Productos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to action -->
+  <section class="cta">
+    <h2>Crea un usuario en Samada</h2>
+    <p>Crea tu cuenta para almacenar tu información, 
+      tener acceso a compras online y estar informado de ofertas
+      exclusivas.</p>
+    <div class="cta-buttons">
+      <button class="btn btn-outline">Registrarse</button>
+      <button class="btn btn-outline">Ya tengo cuenta</button>
+    </div>
+  </section>
+
+  <!-- Productos destacados -->
+  <section class="productos">
+    <h2>Productos en Oferta</h2>
+    <p>Aprovecha nuestras ofertas especiales en productos naturales seleccionados</p>
+    <div class="grid">
+      <div class="card">
+        <img src="img/COLAGENO.jpg" alt="Colageno">
+        <span class="badge">-10%</span>
+        <h3 class="product-name">Extracto de Ginkgo Biloba</h3>
+        <p class="price">$289 <span class="old-price">$320</span></p>
+        <button class="btn btn-outline-card">Agregar al Carrito</button>
+      </div>
+      <div class="card">
+        <img src="img/COLAGENO.jpg" Té Verde Orgánico">
+        <span class="badge">-15%</span>
+        <h3 class="product-name">Té Verde Orgánico</h3>
+        <p class="price">$156 <span class="old-price">$180</span></p>
+        <button class="btn btn-outline-card">Agregar al Carrito</button>
+      </div>
+      <div class="card">
+        <img src="img/COLAGENO.jpg" alt="Aceite de Coco Virgen">
+        <span class="badge">-12%</span>
+        <h3 class="product-name">Aceite de Coco Virgen</h3>
+        <p class="price">$245 <span class="old-price">$280</span></p>
+        <button class="btn btn-outline-card">Agregar al Carrito</button>
+      </div>
+      <div class="card">
+        <img src="img/COLAGENO.jpg" alt="Cúrcuma Premium">
+        <span class="badge">-14%</span>
+        <h3 class="product-name">Cúrcuma Premium</h3>
+        <p class="price">$198 <span class="old-price">$230</span></p>
+        <button class="btn btn-outline-card">Agregar al Carrito</button>
+      </div>
+    </div>
+    <div class="productos-boton">
+      <button class="btn btn-outline">Ver Todos los Productos</button>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="beneficios">
+    <div class="beneficio">
+      <div class="icono">🌿</div>
+      <h3>100% Natural</h3>
+      <p>Todos nuestros productos son naturales y orgánicos, <br>libres de químicos dañinos.</p>
+    </div>
+    <div class="beneficio">
+      <div class="icono">🔬</div>
+      <h3>Calidad Garantizada</h3>
+      <p>Productos certificados y probados en laboratorio para <br>asegurar su eficacia.</p>
+    </div>
+    <div class="beneficio">
+      <div class="icono">👨‍⚕️</div>
+      <h3>Atención Médica</h3>
+      <p>Contamos con especialistas que te guiarán hacia el <br>mejor tratamiento natural.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <!-- Información de contacto -->
+      <div>
+        <h3>Información de Contacto</h3>
+        <p>📞 +57 3166412518</p>
+        <p>📧 samada@gmail.com</p>
+        <p>📍 Popayán, Cauca</p>
+      </div>
+
+      <!-- Horarios -->
+      <div>
+        <h3>Horarios de Atención</h3>
+        <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+        <p>Sábados: 9:00 AM - 6:00 PM</p>
+      </div>
+
+      <!-- Información adicional -->
+      <div>
+        <h3>Natural's SAMADA</h3>
+        <p>El mejor socio para un plan de vida saludable</p>
+        <p class="licencia">Licencia sanitaria: COFEPRIS-123456</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Natural's Samada Farmacia Naturista. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

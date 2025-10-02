@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Clientes</title>
+  <link rel="stylesheet" href="clientes.component.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <h1>Gestión de Clientes</h1>
+    <p class="subtitle">Administra tu base de clientes registrados</p>
+    <button class="btn">+ Nuevo Cliente</button>
+
+    <!-- Búsqueda -->
+    <div class="search-box">
+      <input type="text" placeholder="Buscar clientes por nombre o email...">
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="stats">
+      <div class="card">
+        <p>Total Clientes</p>
+        <h2>5</h2>
+      </div>
+      <div class="card">
+        <p>Ventas Totales</p>
+        <h2>$17,980</h2>
+      </div>
+    </div>
+
+    <!-- Lista de clientes -->
+    <div class="grid-clients">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">María García López</h3>
+          <span class="badge gray">Activo</span>
+        </div>
+        <div class="client-info">
+          <p>Email: maria.garcia@email.com</p>
+          <p>Tel: +57 1234 5678</p>
+          <p>Cliente desde: 2024-01-15</p>
+          <p>Total compras: 15</p>
+          <p>Total gastado: $4,580</p>
+          <p>Última compra: 2024-09-15</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Carlos Rodríguez Méndez</h3>
+        <span class="badge gray">Activo</span>
+        <div class="client-info">
+          <p>Email: carlos.rodriguez@email.com</p>
+          <p>Tel: +57 55 9876 5432</p>
+          <p>Cliente desde: 2024-02-20</p>
+          <p>Total compras: 8</p>
+          <p>Total gastado: $2,340</p>
+          <p>Última compra: 2024-09-10</p>
+        </div>
+      </div>
+
+      <!-- Aquí agregar más clientes -->
+    </div>
+
+    <!-- Si no hay resultados -->
+    <div class="no-results">
+      <h3>No se encontraron clientes</h3>
+      <p>Intenta ajustar el término de búsqueda</p>
+    </div>
+  </div>
+</body>
+</html>

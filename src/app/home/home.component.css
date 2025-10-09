@@ -285,7 +285,7 @@
   /* ---------------- BANNER ---------------- */
   .banner {
     position: relative;
-    background: url("img/\(5\).png") no-repeat center/cover;
+    background: url("/ProyectoAngularWebI/src/img/\(5\).png") no-repeat center/cover;
     height: 1000px;
     display: flex;
     align-items: center;

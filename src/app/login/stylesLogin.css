@@ -49,12 +49,12 @@ body {
   margin-left: -90px; /*para correr un a la izquierda el icono y el "naturalsamada y farmacia naturista"*/
 }
 
-.brand-icon {
-  background-color: #00b050; 
-  color: white;
-  padding: 15px;
-  border-radius: 12px;
-  font-size: 28px; 
+/*icnono principal*/
+.brand-icon img {
+   width: 50px;        /* ajusta el tamaño del logo */
+  height: auto; 
+  display: block;      /* puedes quitarlo si quieres mantener proporción natural */
+  margin: 0 auto 10 px;
 }
 
 .brand-text h2 {
@@ -101,8 +101,11 @@ body {
 
 .container h2 {
   text-align: center;
-  color: #1a1a1a;
+  color: #367a25;
   margin-bottom: 20px;
+  font-size: 15px; /* Más pequeño que el tamaño por defecto */
+  font-weight: 400; /* Más delgado (normal) */
+  /* font-weight: 300; */ /* Si quieres aún más delgado */
 }
 
 /*Campos del formulario */
@@ -113,11 +116,19 @@ label {
   margin-bottom: 5px;
   margin-top: 15px;
 }
-
-label i {
+/*icono de mensajeria*/
+label i.fa-envelope {
   margin-right: 8px;
-  color: #00994d;
+  color: #2e3833;
+  filter: brightness(0) saturate(100%); 
 }
+
+/*icono del candado*/
+label i.fa-lock {
+  color: transparent;
+  -webkit-text-stroke: 1px #2e3833; /* Solo borde */
+}
+
 
 input[type="email"],
 input[type="password"] {

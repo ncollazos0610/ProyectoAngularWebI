@@ -1,7 +1,7 @@
 /*  Estilos generales  */
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: #e9fdf0; 
+  background-color: #e9fdf0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #018749; 
+  color: #018749;
   font-weight: 600;
   text-decoration: none;
   margin-bottom: 20px;
@@ -52,7 +52,7 @@ body {
 /*icnono principal*/
 .brand-icon img {
    width: 50px;        /* ajusta el tamaño del logo */
-  height: auto; 
+  height: auto;
   display: block;      /* puedes quitarlo si quieres mantener proporción natural */
   margin: 0 auto 10 px;
 }
@@ -60,12 +60,12 @@ body {
 .brand-text h2 {
   margin: 0;
   font-size: 24px;
-  color: #006633; 
+  color: #006633;
 }
 
 .brand-text p {
   margin: 0;
-  color: #00994d; 
+  color: #00994d;
   font-size: 14px;
 }
 
@@ -91,7 +91,7 @@ body {
 
 /* Contenedor del formulario  */
 .container {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 50px;
@@ -120,7 +120,7 @@ label {
 label i.fa-envelope {
   margin-right: 8px;
   color: #2e3833;
-  filter: brightness(0) saturate(100%); 
+  filter: brightness(0) saturate(100%);
 }
 
 /*icono del candado*/

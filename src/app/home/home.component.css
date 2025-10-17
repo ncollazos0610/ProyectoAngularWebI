@@ -8,7 +8,7 @@
   }
 
   body {
-    font-family: 'Lato', sans-serif; 
+    font-family: 'Lato', sans-serif;
     line-height: 1.6;
     color: white; /* texto claro para contraste */
     background: #0e1116; /* azul oscuro con toque púrpura */
@@ -285,7 +285,7 @@
   /* ---------------- BANNER ---------------- */
   .banner {
     position: relative;
-    background: url("/ProyectoAngularWebI/src/img/\(5\).png") no-repeat center/cover;
+    background: url("/Products.png") no-repeat center/cover;
     height: 1000px;
     display: flex;
     align-items: center;

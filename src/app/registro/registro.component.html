@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="registro.component.css">
+
+    <!-- Íconos de Font Awesome, utilizo una librearia directamente desde los servidores de font awesome
+       sin necesidad de descargarla. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+
+<body>
+   <!--
+  iconos:
+  "fa-soli fa-enveloper"   :icono de correo
+  "fa-solid fa-lock"       : candado
+  -->
+
+  <!--div que es el contenedor principal de todo el login-->
+  <div class="login-container">
+
+    <!--Enlace-->
+    <a href="#" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i>volver al inicio
+    </a>
+
+    <!-- Logo y nombre -->
+        <div class="brand-header">
+            <div class="brand-icon">
+                  <img src="/logotipo.png" alt="Logo Naturals Samada" class="brand-logo">
+            </div>
+            <div class="brand-text">
+                <h2>Naturals Samada</h2>
+                <p>Farmacia Naturista</p>
+            </div>
+        </div>
+
+    <!--titulo y subtitulo-->
+    <div class="login-intro">
+    <h2>Crear Cuenta</h2>
+    <p class="subtitle">Únete a nuestra comunidad y descubre el poder de la medicina natural</p>
+  </div>
+
+    <!--(form) formulario de inicio sesion-->
+    <form class="container">
+      <h2>Informacion Personal</h2>
+      <!--campo de correo-->
+      <label for="nombrecompleto"><i class="far fa-user"></i> Nombre Completo </label>
+      <input type="nombre" id="nombre" placeholder="Juan Perez Lopez" required>
+
+      <!--campo de contraseña-->
+      <label for="correo"><i class="far fa-envelope"></i> Correo Electronico</label>
+      <input type="email" id="email" placeholder="tu@email.com" required>
+
+      <!--campo de telefono-->
+      <label for="telefono"><i class="fa-solid fa-phone"></i> Telefono</label>
+      <input type="tel" id="tel" placeholder="+57" required>
+
+       <!--campo de contraseña-->
+      <label for="contraseña"><i class="fa-solid fa-lock"></i> Contraseña</label>
+      <input type="password" id="password" placeholder="••••••••" required>
+      <small id="passHelp" class="help-text">mínimo 8 caracteres</small>
+
+      <!--campo de confirmacion de contraseña-->
+      <label for="contraseña"><i class="fa-solid fa-lock"></i> Confirmar Contraseña</label>
+      <input type="password" id="password" placeholder="••••••••" required>
+      
+
+      <!--campos adicionales-->
+      <div class="options">
+        <label><input type="checkbox">Acepto los <a href="#">terminos y condiciones</a> y la <a href="#">politica de privacidad</a> </label>
+      </div>
+
+      <!--boton de iniciar-->
+      <button type="submit" class="btn-login">Crear Cuenta</button>
+      <!--enlance para el registro-->
+      <p class="register-text">¿Ya tines una cuenta? 
+        <a routerLink="/login" class="login-link">inicia sesion aqui</a>
+      </p>
+    </form>
+
+    <!-- recuadro informativo -->
+<div class="benefits-container">
+  <h3>¿Por que elegir Samada?</h3>
+
+  <ul class="benefits-list">
+    <li>
+      <i class="fa-solid fa-seedling"></i>
+      Productos 100% naturales y orgánicos certificados
+    </li>
+    <li>
+      <i class="fa-solid fa-user-doctor"></i>
+      Asesoría personalizada con especialistas en medicina natural
+    </li>
+    <li>
+      <i class="fa-solid fa-truck"></i>
+      Envío gratuito en compras mayores a $500
+    </li>
+    <li>
+        <i class="fa-solid fa-sack-dollar"></i>
+      Descuentos exclusivos para miembros registrados
+    </li>
+  </ul>
+</div>
+  </div> 
+</body>
+
+</html>

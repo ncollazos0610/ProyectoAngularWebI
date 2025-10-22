@@ -50,7 +50,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: transparent; /* o rgba(0,0,0,0.25) si quieres tenue */
+    background: rgba(0,0,0,0.1);
     z-index: 1000;
     margin: 0;
   }
@@ -290,7 +290,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: left;
     color: white;
   }
   .banner-overlay {
@@ -302,8 +301,8 @@
     position: relative;
     margin-right: 1200px;
     z-index: 1;
-    max-width: 500px;
-    text-align: left;
+    max-width: 800px;
+    margin: 20px;
   }
   .banner-buttons {
     margin-top: 20px;
@@ -312,8 +311,8 @@
     flex-wrap: wrap;
   }
   .banner h1{
-    text-align: left;
     color: rgb(255, 255, 255);
+
   }
   .banner p{
     font-size: 1.2rem;
@@ -462,7 +461,9 @@
     color: #a7f3d0;
   }
 
-  /* Ocultamos checkbox */
+/* =================== ESTILOS BASE =================== */
+
+/* Ocultamos checkbox */
 .menu-checkbox {
   display: none;
 }
@@ -472,12 +473,12 @@
   font-size: 1.8rem;
   color: white;
   cursor: pointer;
-  display: none; /* solo en móvil */
+  display: none; /* solo visible en móvil */
 }
 
 /* =================== RESPONSIVE =================== */
 
-/* 📱 Celulares (pantallas pequeñas, <= 600px) */
+/* 📱 Celulares (<=600px) */
 @media (max-width: 600px) {
   body {
     font-size: 14px;
@@ -485,7 +486,7 @@
   }
 
   .header-content {
-    flex-direction: column; /* nav y logo apilados */
+    flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
@@ -513,12 +514,42 @@
   }
 
   .btn {
-    min-width: unset; /* que los botones no se vean gigantes */
     width: 100%;
     text-align: center;
   }
 
-  /* Responsive */
+  .banner {
+    height: 500px;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .banner-content {
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .banner h1 {
+    font-size: 1.8rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
+  }
+
+  .grid,
+  .beneficios {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* 📱 Tablets verticales y pantallas pequeñas (<=768px) */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
@@ -537,16 +568,11 @@
     z-index: 999;
   }
 
-  /* ✅ Cuando el checkbox está activado, se muestra el menú */
   .menu-checkbox:checked ~ .menu-icon + .menu-right {
     display: flex;
   }
 
-  .nav {
-    flex-direction: column;
-    gap: 15px;
-  }
-
+  .nav,
   .auth {
     flex-direction: column;
     gap: 15px;
@@ -556,93 +582,121 @@
     width: 100%;
   }
 }
-  .banner {
-    height: 550px; /* más pequeño en móviles */
-    text-align: center;
-    justify-content: center;
-    padding: 20px;
-  }
 
-  .banner-content {
-    margin-right: 0;
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .banner h1 {
-    font-size: 1.8rem;
-  }
-
-  .banner p {
-    font-size: 1rem;
-  }
-
-  .grid {
-    grid-template-columns: 1fr; /* productos en una columna */
-  }
-
-  .beneficios {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-
-/* 💻 Portátiles / Tablets medianas (601px - 1024px) */
+/* 💻 Portátiles (601px - 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
   body {
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
+  /* HEADER */
   .header-content {
-    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
   }
 
   .logo-img {
-    height: 60px;
+    height: 65px;
   }
 
   .nav {
-    gap: 16px;
+    display: flex;
+    gap: 30px;
   }
 
   .menu-right {
-    gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
   }
 
+  .auth {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+  }
+
+  /* BANNER */
   .banner {
-    height: 700px;
-    padding: 30px;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    padding: 40px;
   }
 
   .banner-content {
-    margin-right: 0;
-    max-width: 80%;
+    max-width: 75%;
+    text-align: left;
+    margin-right: auto;
   }
 
   .banner h1 {
-    font-size: 2.2rem;
+    font-size: 2.6rem;
+    margin-bottom: 15px;
   }
 
   .banner p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    color: #e2e2e2;
+    max-width: 80%;
   }
 
+  /* GRILLAS */
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
   }
 
   .beneficios {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
   }
 
+  /* FOOTER */
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 30px 50px;
+  }
+
+  .footer-grid div {
+    text-align: left;
+  }
+
+  .footer-grid h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .footer-grid p,
+  .footer-grid a {
+    font-size: 0.95rem;
+    color: #ccc;
   }
 }
+
 
 /* 🖥️ Escritorio grande (>= 1025px) */
 @media (min-width: 1025px) {

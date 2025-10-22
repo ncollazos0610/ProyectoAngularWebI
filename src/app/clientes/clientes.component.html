@@ -7,6 +7,42 @@
   <link rel="stylesheet" href="clientes.component.css">
 </head>
 <body>
+  <!-- HEADER -->
+<header class="header">
+  <div class="container header-content">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
+      <p class="brand-name">Natural's Samada</p>
+    </div>
+
+       <!-- Checkbox oculto -->
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+
+    <!-- Label actúa como botón hamburguesa -->
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <!-- Menú + Botones agrupados -->
+    <div class="menu-right">
+      <nav class="nav">
+            <a routerLink="/" class="nav-link" routerLinkActive="active">Inicio</a>
+            <a routerLink="/productos" class="nav-link" routerLinkActive="active">Productos</a>
+            <a routerLink="/clientes" class="nav-link" routerLinkActive="active">Clientes</a>
+            <a routerLink="/proveedores" class="nav-link" routerLinkActive="active">Proveedores</a>
+            <a routerLink="/ventas" class="nav-link" routerLinkActive="active">Ventas</a>
+      </nav>
+      <div class="auth">
+        <a routerLink="/login" class="nav-link" routerLinkActive="active" class="btn ghost">Iniciar Sesión</a>
+        <a routerLink="/registro" routerLinkActive="active" class="nav-link btn ghost" >Registrarse</a>
+
+        <div class="logo">
+          <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
   <div class="container">
     <!-- Header -->
     <h1>Gestión de Clientes</h1>

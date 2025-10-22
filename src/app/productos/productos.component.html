@@ -1,78 +1,65 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catálogo de Productos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="productos.component.css" />
   </head>
 
   <body class="min-h-screen bg-gray-50 py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
       <!-- HEADER -->
-<header class="header">
-  <div class="container header-content">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
-      <p class="brand-name">Natural's Samada</p>
-    </div>
-
-       <!-- Checkbox oculto -->
-    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-
-    <!-- Label actúa como botón hamburguesa -->
-    <label for="menu-toggle" class="menu-icon">☰</label>
-
-    <!-- Menú + Botones agrupados -->
-    <div class="menu-right">
-      <nav class="nav">
-            <a routerLink="/" class="nav-link" routerLinkActive="active">Inicio</a>
-            <a routerLink="/productos" class="nav-link" routerLinkActive="active">Productos</a>
-            <a routerLink="/clientes" class="nav-link" routerLinkActive="active">Clientes</a>
-            <a routerLink="/proveedores" class="nav-link" routerLinkActive="active">Proveedores</a>
-            <a routerLink="/ventas" class="nav-link" routerLinkActive="active">Ventas</a>
-      </nav>
-      <div class="auth">
-        <a routerLink="/login" class="nav-link" routerLinkActive="active" class="btn ghost">Iniciar Sesión</a>
-        <a routerLink="/registro" routerLinkActive="active" class="nav-link btn ghost" >Registrarse</a>
-
-        <div class="logo">
-          <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</header>
-
-      <!-- Filtros -->
-      <div class="bg-white rounded-lg shadow-sm border border-green-100 p-6 mb-8">
-        <div class="flex flex-col md:flex-row gap-4">
-          <div class="flex-1 relative">
-            <input
-              type="text"
-              placeholder="Buscar productos..."
-              class="w-full pl-10 pr-3 py-2 border border-green-200 rounded-md focus:border-green-400"
-            />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+      <header class="header">
+        <div class="container header-content">
+          <!-- Logo -->
+          <div class="logo">
+            <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
+            <p class="brand-name">Natural's Samada</p>
           </div>
-          <div class="md:w-64">
-            <select
-              class="w-full border border-green-200 rounded-md py-2 px-3 focus:border-green-400"
-            >
+
+          <!-- Checkbox oculto -->
+          <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+
+          <!-- Icono de menú -->
+          <label for="menu-toggle" class="menu-icon">☰</label>
+
+          <!-- Menú de navegación -->
+          <div class="menu-right">
+            <nav class="nav">
+              <a routerLink="/" routerLinkActive="active" class="nav-link">Inicio</a>
+              <a routerLink="/productos" routerLinkActive="active" class="nav-link">Productos</a>
+              <a routerLink="/clientes" routerLinkActive="active" class="nav-link">Clientes</a>
+              <a routerLink="/proveedores" routerLinkActive="active" class="nav-link">Proveedores</a>
+              <a routerLink="/ventas" routerLinkActive="active" class="nav-link">Ventas</a>
+            </nav>
+
+            <!-- Botones de autenticación -->
+            <div class="auth">
+              <a routerLink="/login" routerLinkActive="active" class="nav-link btn ghost">Iniciar Sesión</a>
+              <a routerLink="/registro" routerLinkActive="active" class="nav-link btn ghost">Registrarse</a>
+
+              <div class="logo">
+                <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENIDO PRINCIPAL -->
+      <main class="productos-main">
+        <section class="catalogo">
+          <h1 class="titulo">Catálogo de Productos</h1>
+          <p class="subtitulo">Descubre nuestra amplia gama de productos naturales para tu bienestar</p>
+
+          <!-- Filtros -->
+          <div class="filtros">
+            <div class="campo-busqueda">
+              <input type="text" placeholder="Buscar productos..." />
+              <span class="icono-busqueda">🔍</span>
+            </div>
+            <select>
               <option>Todas las categorías</option>
               <option>Pastilleros</option>
               <option>Aceites esenciales</option>
@@ -81,56 +68,54 @@
               <option>Jarabes</option>
             </select>
           </div>
-        </div>
-      </div>
 
-      <!-- Resultados -->
-      <div class="mb-6">
-        <p class="text-gray-600">Mostrando 8 de 8 productos</p>
-      </div>
+          <!-- Resultados -->
+          <p class="resultados">Mostrando 8 de 8 productos</p>
 
-      <!-- Grid de productos -->
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-      >
-        <!-- Producto 1 -->
-        <div
-          class="group hover:shadow-lg transition-shadow duration-300 border border-green-100 rounded-lg bg-white"
-        >
-          <div class="relative">
-            <img
-              src="https://images.unsplash.com/photo-1543358025-c4f3bb83b0b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=300"
-              alt="Extracto de Ginkgo Biloba"
-              class="w-full h-48 object-cover rounded-t-lg"
-            />
-            <span
-              class="absolute top-3 right-3 bg-orange-500 text-white text-xs px-2 py-1 rounded-md"
-              >Pocas existencias</span
-            >
+          <!-- Aquí van los productos -->
+          <div id="productos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Productos se insertan aquí -->
           </div>
-          <div class="p-4">
-            <h3
-              class="text-lg text-gray-900 mb-2 group-hover:text-green-700 transition-colors"
-            >
-              Extracto de Ginkgo Biloba
-            </h3>
-            <p class="text-sm text-gray-600 mb-3">
-              Mejora la circulación y memoria
-            </p>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-2xl text-green-600">$289</span>
-              <span class="text-sm text-gray-500">Stock: 25</span>
-            </div>
-            <button
-              class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md"
-            >
-              Agregar al Carrito
-            </button>
-          </div>
-        </div>
-
-        <!-- Aquí puedes duplicar el bloque anterior y cambiar los datos de cada producto -->
+        </section>
+        <!-- Productos destacados -->
+  <section class="productos">
+    <h2>Productos en Oferta</h2>
+    <p>Aprovecha nuestras ofertas especiales en productos naturales seleccionados</p>
+    <div class="grid">
+      <div class="card">
+        <img src="/Valeriana.png" alt="Colageno">
+        <span class="badge">-10%</span>
+        <h3 class="product-name">Gotas de Valeriana</h3>
+        <p class="price">$28.000 <span class="old-price">$30.000</span></p>
+        <button class="btn btn-outline-card">Agregar al Carrito</button>
       </div>
+      <div class="card">
+        <img src="/TeVerde.png" alt="Té Verde Orgánico">
+        <span class="badge">-10%</span>
+        <h3 class="product-name">Té Verde Orgánico</h3>
+        <p class="price">$50.0000 <span class="old-price">$55.0000</span></p>
+        <button class="btn btn-outline-card">Agregar al Carrito</button>
+      </div>
+      <div class="card">
+        <img src="/CarbonActivado.png" alt="Aceite de Coco Virgen">
+        <span class="badge">-12%</span>
+        <h3 class="product-name">Carbon Activado</h3>
+        <p class="price">$35.000 <span class="old-price">$42.000</span></p>
+        <button class="btn btn-outline-card">Agregar al Carrito</button>
+      </div>
+      <div class="card">
+        <img src="/Transveratrol.png" alt="Cúrcuma Premium">
+        <span class="badge">-14%</span>
+        <h3 class="product-name">Transveratrol + NAD</h3>
+        <p class="price">$70.000 <span class="old-price">$85.000</span></p>
+        <button class="btn btn-outline-card">Agregar al Carrito</button>
+      </div>
+    </div>
+    <div class="productos-boton">
+      <button class="btn btn-outline">Ver Todos los Productos</button>
+    </div>
+  </section>
+      </main>
     </div>
   </body>
 </html>

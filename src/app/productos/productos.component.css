@@ -1,0 +1,144 @@
+/* ========== HEADER LIMPIO (reemplazar reglas antiguas) ========== */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.1);
+    z-index: 1000;
+    margin: 0;
+  }
+
+  .header-content {
+    max-width: 100%;   /* conserva tu ancho centrado */
+    margin: 0 ;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .brand-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #bbc9cc;
+    line-height: 1;
+  }
+
+  /* AGRUPADOR derecho: agrupa nav + botones y lo empuja a la derecha */
+  .menu-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;      /* espacio entre nav y auth */
+    margin-left: auto; /* ¡esto empuja todo a la derecha! */
+  }
+
+  /* NAV */
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;      /* separación entre enlaces */
+  }
+
+  .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 0;
+    font-size: 0.98rem;
+    transition: color 0.18s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #8bc34a;
+  }
+
+  /* AUTH (botones) */
+  .auth {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Alineación consistente (por si hay otras reglas) */
+  .header-content, .logo, .menu-right, .nav, .auth {
+    align-items: center;
+  }
+
+
+  /* LOGO */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+  }
+
+  .logo-img {
+    height: 70px;
+    width: auto;
+  }
+  .car-img{
+    height: 50px;
+    width: auto;
+    border-style: none;
+  }
+  .car-img{
+    background: transparent;
+    border-style: none;
+  }
+  .car-img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+
+
+  /* NAV */
+  .nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: #8bc34a; /* Verde natural */
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #4CAF50;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-link.active {
+    color: #4CAF50;
+  }
+
+  /* AUTH BUTTONS */
+  .auth {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  /* Contenedor para agrupar nav + botones */
+  .menu-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;          /* separación entre menú y botones */
+    margin-left: auto;  /* empuja todo a la derecha */
+  }

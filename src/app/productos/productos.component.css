@@ -17,31 +17,17 @@
   margin-bottom: 35px;
 }
 
-/* ======= BUSCADOR ======= */
-.buscador {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  background-color: #f9fff9;
-  border: 1px solid #c8e6c9;
-  border-radius: 12px;
-  padding: 15px;
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-  box-shadow: 0 2px 4px rgba(46, 125, 50, 0.1);
-}
+
 
 .input-busqueda {
   flex: 1;
   min-width: 250px;
-  padding: 12px 15px;
+  padding: 12px 150px;
   border: 1px solid #a5d6a7;
   border-radius: 8px;
   font-size: 1rem;
   outline: none;
+  align-items: left;
   transition: border-color 0.3s ease;
 }
 
@@ -585,90 +571,6 @@
   }
 }
 
-/* 💻 Portátiles (601px - 1024px) */
-@media (min-width: 1200px) and (max-width: 1400px) {
-  body {
-    font-size: 16px;
-  }
-
-  .header-content {
-    padding: 20px 60px;
-  }
-
-  .logo-img {
-    height: 70px;
-  }
-
-  .nav {
-    gap: 30px;
-  }
-
-  .menu-right {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
-
-  /* 🟩 Banner perfectamente centrado */
-  .banner {
-    height: 700px;
-    padding: 60px 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .banner-content {
-    max-width: 900px;
-    margin-left: 260px;
-  }
-
-  .banner h1 {
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 15px;
-    text-align: left;
-  }
-
-  .banner p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-bottom: 25px;
-    text-align: left;
-  }
-
-  .banner .btn {
-    font-size: 1rem;
-    padding: 12px 28px;
-  }
-
-  /* 🟨 Sección productos o grid */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 40px;
-    padding: 40px 80px;
-  }
-
-  /* 🟦 Beneficios o características */
-  .beneficios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 40px;
-    padding: 40px 80px;
-  }
-
-  /* 🟪 Footer limpio y equilibrado */
-  .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 40px 80px;
-    text-align: center;
-  }
-}
 /* 🖥️ Escritorio grande (>= 1025px) */
 @media (min-width: 1025px) {
   body {
@@ -690,4 +592,174 @@
   .footer-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
+
+
+
+
+
+
+  /* ======= Seccion de buscar productos ======= */
+  body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: #1f2937;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.productos-main {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem 2rem; /* Espacio superior desde el menú */
+}
+
+/* Sección catálogo */
+.catalogo {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Encabezado general */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+}
+
+/* Texto superior */
+.info-principal {
+  flex: 1 1 600px;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.subtitulo {
+  font-size: 1.1rem;
+  color: #888d93;
+  margin-bottom: 2rem;
+}
+
+/* Caja de filtros (buscador + categoría) */
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #ffffff;
+  border: 1px solid #d1fae5;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 8000px;
+  
+}
+
+/* Campo de búsqueda */
+.campo-busqueda {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.75rem;
+  padding: 0;
+}
+
+.campo-busqueda input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.icono-busqueda {
+  font-size: 1.2rem;
+  color: #6b7280;
+  margin-right: 0.5rem;
+}
+
+/* Selector de categorías */
+.select-categoria {
+  background: #f9fafb;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.75rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  color: #111827;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.select-categoria:hover,
+.select-categoria:focus {
+  border-color: #34d399;
+  box-shadow: 0 0 0 2px #a7f3d0;
+}
+
+/* =============================== */
+/* SECCIÓN DE PRODUCTOS */
+/* =============================== */
+
+.productos-seccion {
+  margin-top: 3rem; /* 👈 Espacio entre filtros y productos */
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb; /* Línea sutil separadora */
+}
+
+.productos-titulo {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* Grilla de productos */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.producto-card {
+  background: #f9fafb;
+  border: 1px solid #dcfce7;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .encabezado {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .filtros {
+    justify-content: center;
+  }
+
+  .productos-grid {
+    gap: 1.5rem;
+  }
+}
+
 }

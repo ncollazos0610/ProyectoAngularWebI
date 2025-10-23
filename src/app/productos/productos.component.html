@@ -47,75 +47,77 @@
         </div>
       </header>
 
-      <!-- CONTENIDO PRINCIPAL -->
-      <main class="productos-main">
-        <section class="catalogo">
-          <h1 class="titulo">Catálogo de Productos</h1>
-          <p class="subtitulo">Descubre nuestra amplia gama de productos naturales para tu bienestar</p>
+     <!-- CONTENIDO PRINCIPAL -->
+<main class="productos-main">
+  <section class="catalogo">
+    <h1 class="titulo">Catálogo de Productos</h1>
+    <p class="subtitulo">Descubre nuestra amplia gama de productos naturales para tu bienestar</p>
 
-          <!-- Filtros -->
-          <div class="filtros">
-            <div class="campo-busqueda">
-              <input type="text" placeholder="Buscar productos..." />
-              <span class="icono-busqueda">🔍</span>
-            </div>
-            <select>
-              <option>Todas las categorías</option>
-              <option>Pastilleros</option>
-              <option>Aceites esenciales</option>
-              <option>Suplementos</option>
-              <option>Tés e infusiones</option>
-              <option>Jarabes</option>
-            </select>
-          </div>
+    <!-- Filtros -->
+    <div class="filtros">
+      <div class="campo-busqueda">
+        <input type="text" placeholder="Buscar productos..." class="input-busqueda" />
+        <span class="icono-busqueda">🔍</span>
+      </div>
 
-          <!-- Resultados -->
-          <p class="resultados">Mostrando 8 de 8 productos</p>
-
-          <!-- Aquí van los productos -->
-          <div id="productos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Productos se insertan aquí -->
-          </div>
-        </section>
-        <!-- Productos destacados -->
-  <section class="productos">
-    <h2>Productos en Oferta</h2>
-    <p>Aprovecha nuestras ofertas especiales en productos naturales seleccionados</p>
-    <div class="grid">
-      <div class="card">
-        <img src="/Valeriana.png" alt="Colageno">
-        <span class="badge">-10%</span>
-        <h3 class="product-name">Gotas de Valeriana</h3>
-        <p class="price">$28.000 <span class="old-price">$30.000</span></p>
-        <button class="btn btn-outline-card">Agregar al Carrito</button>
-      </div>
-      <div class="card">
-        <img src="/TeVerde.png" alt="Té Verde Orgánico">
-        <span class="badge">-10%</span>
-        <h3 class="product-name">Té Verde Orgánico</h3>
-        <p class="price">$50.0000 <span class="old-price">$55.0000</span></p>
-        <button class="btn btn-outline-card">Agregar al Carrito</button>
-      </div>
-      <div class="card">
-        <img src="/CarbonActivado.png" alt="Aceite de Coco Virgen">
-        <span class="badge">-12%</span>
-        <h3 class="product-name">Carbon Activado</h3>
-        <p class="price">$35.000 <span class="old-price">$42.000</span></p>
-        <button class="btn btn-outline-card">Agregar al Carrito</button>
-      </div>
-      <div class="card">
-        <img src="/Transveratrol.png" alt="Cúrcuma Premium">
-        <span class="badge">-14%</span>
-        <h3 class="product-name">Transveratrol + NAD</h3>
-        <p class="price">$70.000 <span class="old-price">$85.000</span></p>
-        <button class="btn btn-outline-card">Agregar al Carrito</button>
-      </div>
+      <select class="select-categoria">
+        <option>Todas las categorías</option>
+        <option>Pastilleros</option>
+        <option>Aceites esenciales</option>
+        <option>Suplementos</option>
+        <option>Tés e infusiones</option>
+        <option>Jarabes</option>
+      </select>
     </div>
-    <div class="productos-boton">
-      <button class="btn btn-outline">Ver Todos los Productos</button>
+
+    <!-- Aquí van los productos -->
+    <div id="productos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Productos se insertan aquí -->
     </div>
+
+      <p class="resultados">Mostrando 8 de 8 productos</p>
+
+    <!-- Productos destacados (debajo del buscador) -->
+    <section class="productos">
+      <h2>Productos en Oferta</h2>
+      <p>Aprovecha nuestras ofertas especiales en productos naturales seleccionados</p>
+      <div class="grid">
+        <div class="card">
+          <img src="/Valeriana.png" alt="Colageno">
+          <span class="badge">-10%</span>
+          <h3 class="product-name">Gotas de Valeriana</h3>
+          <p class="price">$28.000 <span class="old-price">$30.000</span></p>
+          <button class="btn btn-outline-card">Agregar al Carrito</button>
+        </div>
+        <div class="card">
+          <img src="/TeVerde.png" alt="Té Verde Orgánico">
+          <span class="badge">-10%</span>
+          <h3 class="product-name">Té Verde Orgánico</h3>
+          <p class="price">$50.000 <span class="old-price">$55.000</span></p>
+          <button class="btn btn-outline-card">Agregar al Carrito</button>
+        </div>
+        <div class="card">
+          <img src="/CarbonActivado.png" alt="Aceite de Coco Virgen">
+          <span class="badge">-12%</span>
+          <h3 class="product-name">Carbon Activado</h3>
+          <p class="price">$35.000 <span class="old-price">$42.000</span></p>
+          <button class="btn btn-outline-card">Agregar al Carrito</button>
+        </div>
+        <div class="card">
+          <img src="/Transveratrol.png" alt="Cúrcuma Premium">
+          <span class="badge">-14%</span>
+          <h3 class="product-name">Transveratrol + NAD</h3>
+          <p class="price">$70.000 <span class="old-price">$85.000</span></p>
+          <button class="btn btn-outline-card">Agregar al Carrito</button>
+        </div>
+      </div>
+      <div class="productos-boton">
+        <button class="btn btn-outline">Ver Todos los Productos</button>
+      </div>
+    </section>
   </section>
-      </main>
+</main>
+
     </div>
     <!-- FOOTER -->
   <footer class="footer">

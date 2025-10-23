@@ -14,22 +14,6 @@
     background: #0e1116; /* azul oscuro con toque púrpura */
   }
 
-  /* Otras ideas que puedes probar */
-  body.dark-gray {
-    background: #2b2b2b; /* gris oscuro elegante */
-  }
-
-  body.dark-blue {
-    background: #0f3460; /* azul marino intenso */
-  }
-
-  body.dark-green {
-    background: #1c3a2e; /* verde oscuro sobrio */
-  }
-
-  body.dark-purple {
-    background: #2e1a47; /* púrpura profundo */
-  }
 
   /* ---------------- CONTAINER ---------------- */
   .container {
@@ -44,7 +28,7 @@
     color: #f6fcef;
   }
 
-  /* ========== HEADER LIMPIO (reemplazar reglas antiguas) ========== */
+ /* ========== HEADER LIMPIO (reemplazar reglas antiguas) ========== */
   .header {
     position: fixed;
     top: 0;
@@ -56,7 +40,7 @@
   }
 
   .header-content {
-    max-width: 100%;   /* conserva tu ancho centrado */
+    max-width: 100%;   /*  conserva tu ancho centrado */
     margin: 0 ;
     padding: 12px 20px;
     display: flex;
@@ -615,7 +599,7 @@
     height: 700px;
     padding: 60px 80px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     background-size: cover;
     background-position: center;

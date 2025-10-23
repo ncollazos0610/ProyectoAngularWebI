@@ -148,6 +148,39 @@ body {
     gap: 40px;          /* separación entre menú y botones */
     margin-left: auto;  /* empuja todo a la derecha */
   }
+  /* =================== ESTILOS BASE =================== */
+
+/* Ocultamos checkbox */
+.menu-checkbox {
+  display: none;
+}
+
+/* Ícono hamburguesa */
+.menu-icon {
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  display: none; /* solo visible en móvil */
+}
+
+.btn.ghost {
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    background: tra;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn.ghost:hover {
+    background: linear-gradient(135deg, #45a049, #246b47);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
 .container {
   max-width: 1200px;
   margin: auto;

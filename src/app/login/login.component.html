@@ -48,11 +48,30 @@
       <h2>Bienvenido de vuelta</h2>
       <!--campo de correo-->
       <label for="email"><i class="far fa-envelope"></i> Correo electrónico</label>
-      <input type="email" id="email" placeholder="tu@email.com" required>
+
+     <!--[(ngModel)]  directiva de angular para que el valor del campo en el html
+     y el valor de la variable en ts siempre esten sincronizados--> 
+     <!--campo email-->
+      <input 
+        type="email" 
+        id="email" 
+        placeholder="tu@email.com" 
+        [(ngModel)]="email"  
+        name="email"
+        >
+      <p *ngIf="mensajeEmail" style="color: red; font-size: 17px;">{{ mensajeEmail }}</p>
 
       <!--campo de contraseña-->
       <label for="password"><i class="fa-solid fa-lock"></i> Contraseña</label>
-      <input type="password" id="password" placeholder="••••••••" required>
+      <input 
+        type="password" 
+        id="password" 
+        placeholder="••••••••" 
+        [(ngModel)]="password"
+        name="password"
+        >
+      <p *ngIf="mensajePassword" style="color: red; font-size: 17px;">{{ mensajePassword }}</p>
+
 
       <!--campos adicionales-->
       <div class="options">
@@ -61,9 +80,13 @@
       </div>
 
       <!--boton de iniciar-->
-      <button type="button" class="btn-login">Iniciar Sesión</button>
+      <button type="button" class="btn-login" (click)="iniciarSesion()">Iniciar Sesión</button>
+      <!--mensaje de error-->
+      <p *ngIf="mensajeError" style="color: red; font-size: 15px; text-align: center;">{{mensajeError}}</p>
       <!--enlance para el registro-->
-        <p class="register-text">¿No tienes una cuenta? <a routerLink="/registro"  routerLinkActive="active" class="nav-link">Regístrate aquí</a>
+        <p class="register-text">
+          ¿No tienes una cuenta? 
+         <a routerLink="/registro"  routerLinkActive="active" class="nav-link">Regístrate aquí</a>
         </p>
     </form>
 

@@ -33,9 +33,10 @@ body {
 .back-link i {
   margin-right: 8px; /* Espacio entre flecha y texto */
 }
-
+/* hover para cambiar el color cuando el usuario
+pasa el cursor*/
 .back-link:hover {
-  color: #016b3b;
+  color: #181b1b;
 }
 
 /* Logo y texto del encabezado */

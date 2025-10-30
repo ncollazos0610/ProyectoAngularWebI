@@ -35,7 +35,10 @@ export class LoginComponent {
     } else if(!this.email.trim()){
       //this.mensajeError = 'Por favor, ingrese su correo electrónico';
       this.mensajeEmail = 'Por favor, ingrese su correo electrónico';
-    }else if(!this.password.trim()){
+    }else if (!/^\S+@.*$/.test(this.email)) {
+      this.mensajeEmail = 'El correo debe tener una palabra seguida de @ (ejemplo: juan@)';
+    } 
+    else if(!this.password.trim()){
       //this.mensajeError='Por favor, ingrese su Contraseña';
       this.mensajePassword = 'Por favor, ingrese su contraseña';
     }else{

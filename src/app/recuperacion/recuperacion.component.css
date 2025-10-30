@@ -1,5 +1,6 @@
   /* Para Lato */
   @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
   /* ---------------- RESET ---------------- */
   * {
     margin: 0;
@@ -8,7 +9,7 @@
   }
 
   body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: white; /* texto claro para contraste */
     background: #f9f9f9; /* azul oscuro con toque púrpura */

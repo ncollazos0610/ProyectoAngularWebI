@@ -44,7 +44,10 @@ export class RegistroComponent {
       this.mensajeNombre=' Por favor ingresar el nombre';
     }else if(!this.email.trim()){
       this.mensajeCorreo='por favor ingresar el correo';
-    }else if(!this.tel.trim()){
+    }else if(!/^\S+@.*$/.test(this.email)){
+      this.mensajeCorreo = 'El correo debe tener una palabra seguida de @ (ejemplo: juan@)';
+    }
+      else if(!this.tel.trim()){
       this.mensajeTel='por favor ingresar el telefono'
     }else if(!this.password.trim()){
       this.mensajePassword='por favor ingresar la contraseña'

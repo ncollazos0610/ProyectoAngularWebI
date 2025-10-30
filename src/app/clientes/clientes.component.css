@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: Poppins, sans-serif;
   background: #f9fafb;
   margin: 0;
   padding: 95px;
@@ -10,7 +12,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: black
+    background: black;
     z-index: 1000;
     margin: 0;
   }

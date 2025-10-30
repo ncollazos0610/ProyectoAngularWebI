@@ -8,43 +8,43 @@
   <link rel="stylesheet" href="recuperacion.component.css" />
 </head>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="container header-content">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
-      <p class="brand-name">Natural's Samada</p>
-    </div>
+<body>
 
-    <!-- Checkbox oculto -->
-    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-content">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
+        <p class="brand-name">Natural's Samada</p>
+      </div>
 
-    <!-- Label actúa como botón hamburguesa -->
-    <label for="menu-toggle" class="menu-icon">☰</label>
+      <!-- Checkbox oculto -->
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox">
 
-    <!-- Menú + Botones agrupados -->
-    <div class="menu-right">
-      <nav class="nav">
-        <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
-        <a routerLink="/productos" class="nav-link" routerLinkActive="active">Productos</a>
-        <a routerLink="/clientes" class="nav-link" routerLinkActive="active">Clientes</a>
-        <a routerLink="/proveedores" class="nav-link" routerLinkActive="active">Proveedores</a>
-        <a routerLink="/ventas" class="nav-link" routerLinkActive="active">Ventas</a>
-      </nav>
-      <div class="auth">
-        <a routerLink="/login" class="nav-link" routerLinkActive="active">Iniciar Sesión</a>
-        <a routerLink="/registro" class="nav-link" routerLinkActive="active">Registrarse</a>
+      <!-- Label actúa como botón hamburguesa -->
+      <label for="menu-toggle" class="menu-icon">☰</label>
 
-        <div class="logo">
-          <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
+      <!-- Menú + Botones agrupados -->
+      <div class="menu-right">
+        <nav class="nav">
+          <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+          <a routerLink="/productos" class="nav-link" routerLinkActive="active">Productos</a>
+          <a routerLink="/clientes" class="nav-link" routerLinkActive="active">Clientes</a>
+          <a routerLink="/proveedores" class="nav-link" routerLinkActive="active">Proveedores</a>
+          <a routerLink="/ventas" class="nav-link" routerLinkActive="active">Ventas</a>
+        </nav>
+        <div class="auth">
+          <a routerLink="/login" class="nav-link" routerLinkActive="active">Iniciar Sesión</a>
+          <a routerLink="/registro" class="nav-link" routerLinkActive="active">Registrarse</a>
+
+          <div class="logo">
+            <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
-
-<body>
+  </header>
 
   <!-- FORMULARIO RECUPERAR CONTRASEÑA -->
   <section class="recuperar">
@@ -52,14 +52,15 @@
       <h2>¿Olvidaste tu contraseña?</h2>
       <p>Ingresa tu correo electrónico registrado y te enviaremos un enlace para restablecer tu contraseña.</p>
 
-      <form class="recuperar-form">
-        <label for="email">Correo electrónico</label>
+      <form class="recuperar-form" (submit)="onSubmit($event)">
+
         <input
-         type="email" 
-         id="email" 
-         name="email" 
-         placeholder="ejemplo@correo.com" 
-         required />
+          type="email"
+          id="email"
+          name="email"
+          placeholder="ejemplo@correo.com"
+          required
+        />
 
         <button type="submit" class="btn btn-outline1">Enviar enlace de recuperación</button>
 

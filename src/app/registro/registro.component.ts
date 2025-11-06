@@ -12,62 +12,83 @@ import { RouterModule } from '@angular/router';
 })
 
 
-// Aquí irá la lógica del formulario o funciones del componente
+// la logica del formulario o funciones del componente
 export class RegistroComponent {
+  nombre = "";
+  email = "";
+  tel = "";
+  password = "";
+  confirmacionC = "";
 
-  nombre: string= "";
-  email: string= "";
-  tel:  string= "";
-  password: string= "";
-  confirmacionC: string="";
-  mensajeError: string="";
+  mensajeError = "";
+  mensajeNombre = "";
+  mensajeCorreo = "";
+  mensajeTel = "";
+  mensajePassword = "";
+  mensajeConfirmacion = "";
 
-  mensajeNombre: string="";
-  mensajeCorreo: string="";
-  mensajeTel: string="";
-  mensajePassword: string="";
-  mensajeConfirmacion: string="";
-  
-  guardarRegistro(){
-    //limpiamos mensjaes:
-    this.mensajeError="";
-    this.mensajeNombre="";
-    this.mensajeCorreo="";
-    this.mensajeTel= "";
-    this.mensajePassword="";
-    this.mensajeConfirmacion="";
+  guardarRegistro(): void {
+    // Limpiar mensajes
+    this.mensajeError = this.mensajeNombre = this.mensajeCorreo =
+    this.mensajeTel = this.mensajePassword = this.mensajeConfirmacion = "";
 
-    //validacion de campos
-    if(!this.nombre.trim() && !this.email.trim() && !this.tel.trim() && !this.password.trim() && !this.confirmacionC.trim()){
-      this.mensajeError='Por favor completar todos los campos';
-    }else if(!this.nombre.trim()){
-      this.mensajeNombre=' Por favor ingresar el nombre';
-    }else if(!this.email.trim()){
-      this.mensajeCorreo='por favor ingresar el correo';
-    }else if(!/^\S+@.*$/.test(this.email)){
-      this.mensajeCorreo = 'El correo debe tener una palabra seguida de @ (ejemplo: juan@)';
+    let camposVacios = 0;
+
+    // Validaciones individuales
+    if (!this.nombre.trim()) {
+      this.mensajeNombre = "Por favor ingresar el nombre";
+      camposVacios++;
     }
-      else if(!this.tel.trim()){
-      this.mensajeTel='por favor ingresar el telefono'
-    }else if(!this.password.trim()){
-      this.mensajePassword='por favor ingresar la contraseña'
-    }else if(!this.confirmacionC.trim()){
-      this.mensajeConfirmacion='por favor ingresar la contraseña'
-    }else if (this.password !== this.confirmacionC) {
-      this.mensajeConfirmacion = 'Las contraseñas no coinciden';
-    }else{
-      alert('registro exitoso(sin conexion a la base de datos')
+
+    if (!this.email.trim()) {
+      this.mensajeCorreo = "Por favor ingresar el correo";
+      camposVacios++;
+    } else if (!/^\S+@.*$/.test(this.email)) {
+      this.mensajeCorreo = "El correo debe tener una palabra seguida de @ (ejemplo: juan@)";
     }
-  
+
+    if (!this.tel.trim()) {
+      this.mensajeTel = "Por favor ingresar el telefono";
+      camposVacios++;
+    }
+
+    if (!this.password.trim()) {
+      this.mensajePassword = "Por favor ingresar la contraseña";
+      camposVacios++;
+    }
+
+    if (!this.confirmacionC.trim()) {
+      this.mensajeConfirmacion = "Por favor confirmar la contraseña";
+      camposVacios++;
+    } else if (this.password !== this.confirmacionC) {
+      this.mensajeConfirmacion = "Las contraseñas no coinciden";
+    }
+
+    // Si hay mas de un campo vacio, mostrar mensaje general
+    if (camposVacios > 1) {
+      this.mensajeError = "Por favor completar todos los campos";
+      return;
+    }
+
+    // Si no hay errores, mensaje de bien
+    if (
+      !this.mensajeNombre &&
+      !this.mensajeCorreo &&
+      !this.mensajeTel &&
+      !this.mensajePassword &&
+      !this.mensajeConfirmacion
+    ) {
+      alert("Registro exitoso (sin conexión a la base de datos)");
+    }
   }
 
-  //solo escribir numeros en campo tel
-  soloNumeros(event: any) {
-    const valor = event.target.value;
-    // solo deja pasar números
-    event.target.value = valor.replace(/[^0-9]/g, '');
-    this.tel = event.target.value;
+  soloNumeros(event: any): void {
+    const valor = event.target.value.replace(/[^0-9]/g, "");
+    event.target.value = valor;
+    this.tel = valor;
   }
 }
+
+
 
   

@@ -17,7 +17,7 @@
       <p class="brand-name">Natural's Samada</p>
     </div>
 
-       <!-- Checkbox oculto -->
+    <!-- Checkbox oculto -->
     <input type="checkbox" id="menu-toggle" class="menu-checkbox">
 
     <!-- Label actúa como botón hamburguesa -->
@@ -26,16 +26,16 @@
     <!-- Menú + Botones agrupados -->
     <div class="menu-right">
       <nav class="nav">
-            <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
-            <a routerLink="/productos" class="nav-link" routerLinkActive="active">Productos</a>
-            <a routerLink="/clientes" class="nav-link" routerLinkActive="active">Clientes</a>
-            <a routerLink="/proveedores" class="nav-link" routerLinkActive="active">Proveedores</a>
-            <a routerLink="/ventas" class="nav-link" routerLinkActive="active">Ventas</a>
+        <a routerLink="/" class="nav-link" routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+        <a routerLink="/productos" class="nav-link" routerLinkActive="active">Productos</a>
+        <a routerLink="/clientes" class="nav-link" routerLinkActive="active">Clientes</a>
+        <a routerLink="/proveedores" class="nav-link" routerLinkActive="active">Proveedores</a>
+        <a routerLink="/ventas" class="nav-link" routerLinkActive="active">Ventas</a>
       </nav>
       <div class="auth">
         <a routerLink="/login" class="nav-link" routerLinkActive="active" class="btn ghost">Iniciar Sesión</a>
-        <a routerLink="/registro" class="nav-link" routerLinkActive="active" class="btn ghost">Registrarse</a>
-
+        <a routerLink="/registro" routerLinkActive="active" class="btn ghost">Registrarse</a>
         <div class="logo">
           <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
         </div>
@@ -53,7 +53,8 @@
     <div class="banner-overlay"></div>
     <div class="banner-content">
       <h1>Bienestar natural a tu alcance</h1>
-      <p>Descubre el poder de la medicina natural con productos <strong>100% Naturales</strong> de alta calidad. El mejor socio en un
+      <p>Descubre el poder de la medicina natural con productos <strong>100% Naturales</strong> de alta calidad. El
+        mejor socio en un
         plan de vida <strong>saludable.</strong></p>
       <div class="banner-buttons">
         <a routerLink="/productos" class="nav-link" routerLinkActive="active" class="btn btn-outline">Ver Catalogo</a>
@@ -63,13 +64,13 @@
 
   <!-- Call to action -->
   <section class="cta">
-    <h2>Crea un usuario en Samada</h2>
-    <p>Crea tu cuenta para almacenar tu información,
+    <h2>Bienvenido a Natural's Samada</h2>
+    <p>Crea una cuenta para almacenar tu información,
       tener acceso a <br>compras online y estar informado de ofertas
       exclusivas.</p>
     <div class="cta-buttons">
-      <button class="btn btn-outline1">Registrarse</button>
-      <button class="btn btn-outline1">Ya tengo cuenta</button>
+      <a routerLink="/registro" class="nav-link" routerLinkActive="active" class="btn btn-outline1">Registrarse</a>
+      <a routerLink="/login" class="nav-link" routerLinkActive="active" class="btn btn-outline1">Ya tengo cuenta</a>
     </div>
   </section>
 
@@ -108,7 +109,8 @@
       </div>
     </div>
     <div class="productos-boton">
-      <a routerLink="/clientes" class="nav-link" routerLinkActive="active" class="btn btn-outline">Ver Todos los Productos</a>
+      <a routerLink="/clientes" class="nav-link" routerLinkActive="active" class="btn btn-outline">Ver Todos los
+        Productos</a>
     </div>
   </section>
 
@@ -134,22 +136,17 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
-      <!-- Información de contacto -->
       <div>
         <h3>Información de Contacto</h3>
         <p>📞 +57 3166412518</p>
-        <p>📧 samadagmail.com</p>
+        <p>📧 samada&#64;gmail.com</p>
         <p>📍 Popayán, Cauca</p>
       </div>
-
-      <!-- Horarios -->
       <div>
         <h3>Horarios de Atención</h3>
         <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
         <p>Sábados: 9:00 AM - 6:00 PM</p>
       </div>
-
-      <!-- Información adicional -->
       <div>
         <h3>Natural's SAMADA</h3>
         <p>El mejor socio para un plan de vida saludable</p>
@@ -158,7 +155,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2024 Natural's Samada Farmacia Naturista. Todos los derechos reservados.</p>
+      <p>© 2025 Natural's Samada Farmacia Naturista. Todos los derechos reservados.</p>
     </div>
   </footer>
 </body>

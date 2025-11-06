@@ -1,7 +1,6 @@
-  /* Para Lato */
-  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
-  /* ---------------- RESET ---------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
   * {
     margin: 0;
     padding: 0;
@@ -9,14 +8,12 @@
   }
 
   body {
-    font-family: 'Lato', sans-serif;
+    font-family: Poppins, sans-serif;
     line-height: 1.6;
     color: white;
-    /* texto claro para contraste */
     background: #0e1116;
-    /* azul oscuro con toque púrpura */
-  }
 
+  }
 
   /* ---------------- CONTAINER ---------------- */
   .container {
@@ -39,14 +36,13 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.1);
+    background: #0e1116;
     z-index: 1000;
     margin: 0;
   }
 
   .header-content {
     max-width: 100%;
-    /*  conserva tu ancho centrado */
     margin: 0;
     padding: 12px 20px;
     display: flex;
@@ -57,8 +53,9 @@
   .brand-name {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #bbc9cc;
-    line-height: 1;
+    color: #f6fcef;
+    line-height: 2;
+    margin-left: 1rem;
   }
 
   /* AGRUPADOR derecho: agrupa nav + botones y lo empuja a la derecha */
@@ -66,9 +63,22 @@
     display: flex;
     align-items: center;
     gap: 28px;
-    /* espacio entre nav y auth */
     margin-left: auto;
-    /* ¡esto empuja todo a la derecha! */
+    margin-left: auto;
+  }
+  
+  /* Ocultamos checkbox */
+  .menu-checkbox {
+    display: none;
+  }
+
+  /* Ícono hamburguesa */
+  .menu-icon {
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    display: none;
+    /* solo visible en móvil */
   }
 
   /* NAV */
@@ -76,7 +86,6 @@
     display: flex;
     align-items: center;
     gap: 22px;
-    /* separación entre enlaces */
   }
 
   .nav-link {
@@ -182,15 +191,7 @@
     gap: 0.8rem;
   }
 
-  /* Contenedor para agrupar nav + botones */
-  .menu-right {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    /* separación entre menú y botones */
-    margin-left: auto;
-    /* empuja todo a la derecha */
-  }
+
 
   /* ---------------- BOTONES ---------------- */
 
@@ -348,7 +349,7 @@
 
   /* ---------------- CTA ---------------- */
   .cta {
-    background: linear-gradient(135deg, #16a34a, #15803d);
+    background: linear-gradient(120deg, #45a049, #246b47);
     color: white;
     text-align: center;
     padding: 50px 25px;
@@ -540,21 +541,7 @@
     color: #a7f3d0;
   }
 
-  /* =================== ESTILOS BASE =================== */
 
-  /* Ocultamos checkbox */
-  .menu-checkbox {
-    display: none;
-  }
-
-  /* Ícono hamburguesa */
-  .menu-icon {
-    font-size: 1.8rem;
-    color: white;
-    cursor: pointer;
-    display: none;
-    /* solo visible en móvil */
-  }
 
   /* =================== RESPONSIVE =================== */
 

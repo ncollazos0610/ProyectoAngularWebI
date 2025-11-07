@@ -85,14 +85,6 @@ body {
   gap: 12px;
 }
 
-/* Alineación consistente (por si hay otras reglas) */
-.header-content,
-.logo,
-.menu-right,
-.nav,
-.auth {
-  align-items: center;
-}
 
 
 /* LOGO */
@@ -171,7 +163,7 @@ body {
 .btn.ghost {
   border: 1px solid #fff;
   color: #fff;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 0.2rem;
   border-radius: 20px;
   font-size: 0.9rem;
   background: tra;
@@ -226,24 +218,6 @@ p.subtitle {
     /* tamaño mínimo clickable */
   }
 
-  .btn.ghost {
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    background: tra;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .btn.ghost:hover {
-    background: linear-gradient(135deg, #45a049, #246b47);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  }
 
   .btn.primary {
     background: #8bc34a;

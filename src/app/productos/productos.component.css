@@ -206,7 +206,7 @@ h3 {
   color: #0e1116;
 }
 .card {
-  background: white;
+  background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   padding: 18px;
@@ -694,16 +694,6 @@ h3 {
   gap: 1.5rem;
   width: 100%;
   max-width: 1100px;
-}
-
-.card {
-  position: relative;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {

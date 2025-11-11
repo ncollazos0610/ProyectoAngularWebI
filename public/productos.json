@@ -26,5 +26,33 @@
     "precio": 70000,
     "imagen": "Transveratrol.png",
     "descuento": 14
+  },
+    {
+    "nombre": "Propomiel",
+    "categoria": "Jarabes",
+    "precio": 70000,
+    "imagen": "Propomiel.png",
+    "descuento": 10
+  },
+    {
+    "nombre": "Vitacerebrina",
+    "categoria": "Jarabes",
+    "precio": 70000,
+    "imagen": "Vitacerebrina.png",
+    "descuento": 20
+  },
+    {
+    "nombre": "Cartilago de Tiburón",
+    "categoria": "Jarabes",
+    "precio": 70000,
+    "imagen": "Cartilago.png",
+    "descuento": 8
+  },
+    {
+    "nombre": "Glucosaming",
+    "categoria": "Jarabes",
+    "precio": 70000,
+    "imagen": "Glucosaming.png",
+    "descuento": 10
   }
 ]

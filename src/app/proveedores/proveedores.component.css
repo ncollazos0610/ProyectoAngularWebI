@@ -152,8 +152,9 @@ h3 {
 }
 /* Contenedor Principal */
 .main-container {
-  flex: 1;
+  flex: 5;
   background-color: #f9fafb;
+  margin-top: 200PX;
 }
 
 .container-inner {

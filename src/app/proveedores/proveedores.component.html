@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión de Proveedores - Natural's Samada</title>
   <link rel="stylesheet" href="proveedores.component.css">
 </head>
+
 <body>
   <!-- HEADER -->
   <header class="header">
@@ -17,7 +19,7 @@
       </div>
 
       <!-- Checkbox oculto -->
-      <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
 
       <!-- Label actúa como botón hamburguesa -->
       <label for="menu-toggle" class="menu-icon">☰</label>
@@ -25,17 +27,19 @@
       <!-- Menú + Botones agrupados -->
       <div class="menu-right">
         <nav class="nav">
-          <a href="/" class="nav-link">Inicio</a>
-          <a href="/productos" class="nav-link">Productos</a>
-          <a href="/clientes" class="nav-link">Clientes</a>
-          <a href="/proveedores" class="nav-link active">Proveedores</a>
-          <a href="/ventas" class="nav-link">Ventas</a>
+          <a routerLink="/" class="nav-link">Inicio</a>
+          <a routerLink="/productos" class="nav-link">Productos</a>
+          <a routerLink="/clientes" class="nav-link">Clientes</a>
+          <a routerLink="/proveedores" class="nav-link active">Proveedores</a>
+          <a routerLink="/ventas" class="nav-link">Ventas</a>
         </nav>
         <div class="auth">
-          <a href="/login" class="btn ghost">Iniciar Sesión</a>
-          <a href="/registro" class="btn ghost">Registrarse</a>
+          <a routerLink="/login" class="btn ghost">Iniciar Sesión</a>
+          <a routerLink="/registro" class="btn ghost">Registrarse</a>
           <div class="logo">
-            <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
+            <a routerLink="/carrito">
+              <img src="/car.png" alt="Carrito" class="car-img" />
+            </a>
           </div>
         </div>
       </div>
@@ -51,7 +55,7 @@
           <h1>Gestión de Proveedores</h1>
           <p>Administra tu red de proveedores y distribuidores</p>
         </div>
-        <button class="btn btn-primary" onclick="openModal()">
+        <button class="btn btn-primary" (click)="openModal()">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -67,7 +71,8 @@
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
           </svg>
-          <input type="text" class="input" id="searchInput" placeholder="Buscar proveedores por nombre o productos..." oninput="filterSuppliers()">
+          <input type="text" class="input" placeholder="Buscar proveedores por nombre o productos..."
+            [(ngModel)]="searchTerm" input="filterSuppliers()"/>
         </div>
       </div>
 
@@ -75,13 +80,14 @@
       <div class="stats-grid">
         <div class="card">
           <div class="stat-content">
-            <svg class="stat-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+            <svg class="stat-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a"
+              stroke-width="2">
               <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
               <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
             </svg>
             <div>
               <p class="stat-label">Total Proveedores</p>
-              <p class="stat-value" id="totalSuppliers">5</p>
+              <p class="stat-value">{{ suppliers.length }}</p>
             </div>
           </div>
         </div>
@@ -90,7 +96,7 @@
             <div class="stat-icon green">✓</div>
             <div>
               <p class="stat-label">Activos</p>
-              <p class="stat-value" id="activeSuppliers">4</p>
+              <p class="stat-value">{{ getActiveCount() }}</p>
             </div>
           </div>
         </div>
@@ -99,7 +105,7 @@
             <div class="stat-icon yellow">⏳</div>
             <div>
               <p class="stat-label">Pendientes</p>
-              <p class="stat-value" id="pendingSuppliers">1</p>
+              <p class="stat-value">{{ getPendingCount() }}</p>
             </div>
           </div>
         </div>
@@ -108,24 +114,97 @@
             <div class="stat-icon blue">⭐</div>
             <div>
               <p class="stat-label">Rating Promedio</p>
-              <p class="stat-value" id="avgRating">4.7</p>
+              <p class="stat-value">{{ getAverageRating() }}</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Suppliers Grid -->
-      <div class="suppliers-grid" id="suppliersGrid"></div>
+      <div *ngIf="filteredSuppliers.length > 0; else emptyState" class="suppliers-grid">
+        <div class="supplier-card" *ngFor="let supplier of filteredSuppliers">
+          <div class="supplier-header">
+            <div class="supplier-title">
+              <h3 class="supplier-name">{{ supplier.name }}</h3>
+              <span class="badge" [ngClass]="supplier.status === 'Activo' ? 'active' : 'pending'">{{ supplier.status
+                }}</span>
+            </div>
+            <div class="rating" *ngIf="supplier.rating > 0">
+              <span>{{ getRatingStars(supplier.rating) }}</span>
+              <span>({{ supplier.rating }}/5)</span>
+            </div>
+          </div>
+
+          <div class="supplier-content">
+            <div class="info-row">
+              📧 <span>{{ supplier.email }}</span>
+            </div>
+            <div class="info-row">
+              📞 <span>{{ supplier.phone }}</span>
+            </div>
+            <div class="info-row">
+              🏢 <span>{{ supplier.address || 'No especificada' }}</span>
+            </div>
+            <div class="products-section">
+              <p class="products-label">Productos:</p>
+              <div class="products-tags">
+                <span class="badge outline" *ngFor="let product of supplier.products">{{ product }}</span>
+              </div>
+            </div>
+            <div class="last-order">Último pedido: {{ supplier.lastOrder }}</div>
+            <div class="actions">
+              <button class="btn btn-sm btn-outline" (click)="contactSupplier(supplier.email)">Contactar</button>
+              <button class="btn btn-sm btn-primary" (click)="newOrder(supplier.id)">Nuevo Pedido</button>
+              <button class="btn btn-sm btn-delete" (click)="deleteSupplier(supplier.id)">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Empty State -->
-      <div class="empty-state" id="emptyState" style="display: none;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-        </svg>
-        <h3>No se encontraron proveedores</h3>
-        <p>Intenta ajustar el término de búsqueda</p>
+      <ng-template #emptyState>
+        <div class="empty-state">
+          <h3>No se encontraron proveedores</h3>
+          <p>Intenta ajustar el término de búsqueda</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" [class.active]="isModalOpen" (click)="closeModalOnOutside($event)">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Registrar Nuevo Proveedor</h2>
+        <button class="modal-close" (click)="closeModal()">&times;</button>
       </div>
+
+      <form (ngSubmit)="addSupplier()">
+        <div class="form-group">
+          <label>Nombre de la empresa *</label>
+          <input type="text" [(ngModel)]="newSupplier.name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label>Correo electrónico *</label>
+          <input type="email" [(ngModel)]="newSupplier.email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label>Teléfono *</label>
+          <input type="tel" [(ngModel)]="newSupplier.phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label>Dirección</label>
+          <input type="text" [(ngModel)]="newSupplier.address" name="address" />
+        </div>
+        <div class="form-group">
+          <label>Productos (separados por coma)</label>
+          <textarea [(ngModel)]="newSupplier.productsText" name="products"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-outline" (click)="closeModal()">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Registrar Proveedor</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -154,329 +233,3 @@
       <p>© 2025 Natural's Samada Farmacia Naturista. Todos los derechos reservados.</p>
     </div>
   </footer>
-
-  <!-- Modal -->
-  <div class="modal" id="modal" onclick="closeModalOnOutside(event)">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Registrar Nuevo Proveedor</h2>
-        <button class="modal-close" onclick="closeModal()">&times;</button>
-      </div>
-      <form id="supplierForm" onsubmit="addSupplier(event)">
-        <div class="form-group">
-          <label for="name">Nombre de la empresa *</label>
-          <input type="text" id="name" required placeholder="Ej: Distribuidora Natural S.A.">
-        </div>
-        <div class="form-group">
-          <label for="email">Correo electrónico *</label>
-          <input type="email" id="email" required placeholder="contacto@empresa.com">
-        </div>
-        <div class="form-group">
-          <label for="phone">Teléfono *</label>
-          <input type="tel" id="phone" required placeholder="+57 55 1234 5678">
-        </div>
-        <div class="form-group">
-          <label for="address">Dirección</label>
-          <input type="text" id="address" placeholder="Dirección completa">
-        </div>
-        <div class="form-group">
-          <label for="products">Productos (separados por coma)</label>
-          <textarea id="products" placeholder="Hierbas medicinales, Aceites esenciales, Suplementos"></textarea>
-        </div>
-        <div class="form-actions">
-          <button type="button" class="btn btn-outline" onclick="closeModal()">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Registrar Proveedor</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    // Datos iniciales
-    let suppliers = [
-      {
-        id: 1,
-        name: "Herbolarios del Valle S.A.",
-        email: "contacto@herbolarios.com",
-        phone: "+57 55 1111 2222",
-        address: "Av. Reforma 123",
-        products: ["Hierbas medicinales", "Extractos herbales", "Tés orgánicos"],
-        status: "Activo",
-        rating: 4.8,
-        lastOrder: "2024-09-15"
-      },
-      {
-        id: 2,
-        name: "Laboratorios Naturales MX",
-        email: "ventas@labnaturales.mx",
-        phone: "+57 55 3333 4444",
-        address: "Calle Naturaleza 456",
-        products: ["Suplementos naturales", "Vitaminas", "Extractos concentrados"],
-        status: "Activo",
-        rating: 4.9,
-        lastOrder: "2024-09-20"
-      },
-      {
-        id: 3,
-        name: "Aceites Esenciales Premium",
-        email: "info@aceitespremium.com",
-        phone: "+57 55 5555 6666",
-        address: "Blvd. Orgánico 789",
-        products: ["Aceites esenciales", "Aceites portadores", "Aromaterapia"],
-        status: "Activo",
-        rating: 4.7,
-        lastOrder: "2024-09-18"
-      },
-      {
-        id: 4,
-        name: "Distribuidora Verde Vida",
-        email: "pedidos@verdevida.com",
-        phone: "+57 55 7777 8888",
-        address: "Zona Industrial 321",
-        products: ["Productos orgánicos", "Superalimentos", "Probióticos"],
-        status: "Pendiente",
-        rating: 4.5,
-        lastOrder: "2024-08-30"
-      },
-      {
-        id: 5,
-        name: "Farmacéutica Natural Global",
-        email: "ventas@farmanatural.com",
-        phone: "+57 55 9999 1111",
-        address: "Parque Industrial 654",
-        products: ["Medicamentos herbales", "Cápsulas naturales", "Jarabes"],
-        status: "Activo",
-        rating: 4.6,
-        lastOrder: "2024-09-22"
-      }
-    ];
-
-    // Función para obtener estrellas
-    function getRatingStars(rating) {
-      return "★".repeat(Math.floor(rating)) + "☆".repeat(5 - Math.floor(rating));
-    }
-
-    // Función para renderizar proveedores
-    function renderSuppliers(suppliersToRender) {
-      const grid = document.getElementById('suppliersGrid');
-      const emptyState = document.getElementById('emptyState');
-
-      if (suppliersToRender.length === 0) {
-        grid.style.display = 'none';
-        emptyState.style.display = 'block';
-        return;
-      }
-
-      grid.style.display = 'grid';
-      emptyState.style.display = 'none';
-
-      grid.innerHTML = suppliersToRender.map(supplier => `
-        <div class="supplier-card">
-          <div class="supplier-header">
-            <div class="supplier-title">
-              <h3 class="supplier-name">${supplier.name}</h3>
-              <span class="badge ${supplier.status === 'Activo' ? 'active' : 'pending'}">${supplier.status}</span>
-            </div>
-            ${supplier.rating > 0 ? `
-              <div class="rating">
-                <span>${getRatingStars(supplier.rating)}</span>
-                <span>(${supplier.rating}/5)</span>
-              </div>
-            ` : ''}
-          </div>
-          <div class="supplier-content">
-            <div class="info-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </svg>
-              <span>${supplier.email}</span>
-            </div>
-            <div class="info-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              <span>${supplier.phone}</span>
-            </div>
-            <div class="info-row">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              </svg>
-              <span>${supplier.address || 'No especificada'}</span>
-            </div>
-            <div class="products-section">
-              <div class="info-row">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M16 16h6"></path>
-                  <path d="M16 8h6"></path>
-                  <path d="m2 12 3-3 3 3"></path>
-                  <rect x="2" y="8" width="8" height="12" rx="1"></rect>
-                </svg>
-                <div>
-                  <p class="products-label">Productos:</p>
-                  <div class="products-tags">
-                    ${supplier.products.length > 0
-                      ? supplier.products.map(product => `<span class="badge outline">${product}</span>`).join('')
-                      : '<span class="badge outline">Sin productos</span>'
-                    }
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="last-order">
-              Último pedido: ${supplier.lastOrder}
-            </div>
-            <div class="actions">
-              <button class="btn btn-sm btn-outline" onclick="contactSupplier('${supplier.email}')">Contactar</button>
-              <button class="btn btn-sm btn-primary" onclick="newOrder(${supplier.id})">Nuevo Pedido</button>
-              <button class="btn btn-sm btn-delete" onclick="deleteSupplier(${supplier.id})">Eliminar</button>
-            </div>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    // Función para actualizar estadísticas
-    function updateStats() {
-      document.getElementById('totalSuppliers').textContent = suppliers.length;
-      document.getElementById('activeSuppliers').textContent = suppliers.filter(s => s.status === 'Activo').length;
-      document.getElementById('pendingSuppliers').textContent = suppliers.filter(s => s.status === 'Pendiente').length;
-
-      if (suppliers.length > 0) {
-        const avg = suppliers.reduce((sum, s) => sum + s.rating, 0) / suppliers.length;
-        document.getElementById('avgRating').textContent = avg.toFixed(1);
-      } else {
-        document.getElementById('avgRating').textContent = '0';
-      }
-    }
-
-    // Función para filtrar proveedores
-    function filterSuppliers() {
-      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-      const filtered = suppliers.filter(supplier =>
-        supplier.name.toLowerCase().includes(searchTerm) ||
-        supplier.products.some(product => product.toLowerCase().includes(searchTerm))
-      );
-      renderSuppliers(filtered);
-    }
-
-    // Función para abrir modal
-    function openModal() {
-      document.getElementById('modal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    // Función para cerrar modal
-    function closeModal() {
-      document.getElementById('modal').classList.remove('active');
-      document.getElementById('supplierForm').reset();
-      document.body.style.overflow = 'auto';
-    }
-
-    // Función para cerrar modal al hacer clic fuera
-    function closeModalOnOutside(event) {
-      if (event.target.id === 'modal') {
-        closeModal();
-      }
-    }
-
-    // Función para agregar proveedor
-    function addSupplier(event) {
-      event.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const address = document.getElementById('address').value.trim();
-      const productsInput = document.getElementById('products').value.trim();
-
-      const products = productsInput
-        ? productsInput.split(',').map(p => p.trim()).filter(p => p)
-        : [];
-
-      const newSupplier = {
-        id: suppliers.length > 0 ? Math.max(...suppliers.map(s => s.id)) + 1 : 1,
-        name,
-        email,
-        phone,
-        address: address || 'No especificada',
-        products,
-        status: "Activo",
-        rating: 0,
-        lastOrder: "Nunca"
-      };
-
-      suppliers.push(newSupplier);
-      renderSuppliers(suppliers);
-      updateStats();
-      closeModal();
-
-      // Mostrar mensaje de éxito
-      showNotification('Proveedor agregado exitosamente', 'success');
-    }
-
-    // Función para eliminar proveedor
-    function deleteSupplier(id) {
-      if (confirm('¿Estás seguro de que deseas eliminar este proveedor?')) {
-        suppliers = suppliers.filter(s => s.id !== id);
-        renderSuppliers(suppliers);
-        updateStats();
-
-        // Si hay búsqueda activa, reejecutar filtro
-        const searchTerm = document.getElementById('searchInput').value;
-        if (searchTerm) {
-          filterSuppliers();
-        }
-
-        showNotification('Proveedor eliminado correctamente', 'info');
-      }
-    }
-
-    // Función para contactar proveedor
-    function contactSupplier(email) {
-      window.location.href = `mailto:${email}`;
-    }
-
-    // Función para nuevo pedido
-    function newOrder(supplierId) {
-      const supplier = suppliers.find(s => s.id === supplierId);
-      if (supplier) {
-        alert(`Iniciando nuevo pedido con ${supplier.name}\n\nEsta funcionalidad se puede integrar con tu sistema de pedidos.`);
-      }
-    }
-
-    // Función para mostrar notificaciones
-    function showNotification(message, type) {
-      const notification = document.createElement('div');
-      notification.className = `notification ${type}`;
-      notification.textContent = message;
-      document.body.appendChild(notification);
-
-      setTimeout(() => {
-        notification.classList.add('show');
-      }, 100);
-
-      setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-          document.body.removeChild(notification);
-        }, 300);
-      }, 3000);
-    }
-
-    // Cerrar modal con tecla ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeModal();
-      }
-    });
-
-    // Inicializar la aplicación
-    document.addEventListener('DOMContentLoaded', () => {
-      renderSuppliers(suppliers);
-      updateStats();
-    });
-  </script>
-</body>
-</html>

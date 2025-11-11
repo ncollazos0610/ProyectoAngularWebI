@@ -19,6 +19,7 @@ export class RegistroComponent {
   tel = "";
   password = "";
   confirmacionC = "";
+  aceptaTerminos =false;
 
   mensajeError = "";
   mensajeNombre = "";
@@ -62,6 +63,12 @@ export class RegistroComponent {
       camposVacios++;
     } else if (this.password !== this.confirmacionC) {
       this.mensajeConfirmacion = "Las contraseñas no coinciden";
+    }
+    
+    //validacion de los terminos
+    if(!this.aceptaTerminos){
+      this.mensajeError ="debes aceptar los terminos y condiciones"
+      return;
     }
 
     // Si hay mas de un campo vacio, mostrar mensaje general

@@ -110,10 +110,13 @@
 
       <!--campos adicionales-->
       <div class="options">
-        <label><input type="checkbox">Acepto los <a href="#">terminos y condiciones</a> y la <a href="#">politica de privacidad</a> </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="aceptaTerminos" name="terminos"/>
+          Acepto los <a href="#">terminos y condiciones</a> y la 
+          <a href="#">politica de privacidad</a> </label>
       </div>
 
-      <!--boton de iniciar-->
+      <!--boton de crear cuenta-->
       <button type="button" class="btn-login" (click)="guardarRegistro()">Crear Cuenta</button>
       <!--mensaje error-->
       <p *ngIf="mensajeError" style="color: red; font-size: 15px; text-align: center;">{{mensajeError}}</p>

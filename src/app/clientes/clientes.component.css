@@ -195,28 +195,27 @@ p.subtitle {
 /* ---------------- BOTONES ---------------- */
 
 
-  .btn {
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-    padding: 14px 28px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    border-radius: 50px;
-    /* bordes redondeados */
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    min-width: 180px;
-    /* tamaño mínimo clickable */
-  }
+.btn {
+  border: 1px solid #fff;
+  color: #fff;
+  background: linear-gradient(100deg, #246b47, #45a049);
+  padding: 0.8rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #45a049, #246b47);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+  
 
 
   .btn.primary {
@@ -280,6 +279,8 @@ p.subtitle {
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 20px;
+  margin-right: 300px;
+  margin-top: 25px;
 }
 
 .search-box input {
@@ -287,6 +288,7 @@ p.subtitle {
   outline: none;
   width: 100%;
   font-size: 16px;
+  
 }
 
 .stats {
@@ -294,6 +296,7 @@ p.subtitle {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
   margin-bottom: 20px;
+  margin-right: 300px ;
 }
 
 .card {
@@ -344,7 +347,8 @@ p.subtitle {
 .grid-clients {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
+  gap: 10px;
+  margin-right: 300px;
 }
 
 .no-results {

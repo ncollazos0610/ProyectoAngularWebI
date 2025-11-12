@@ -60,7 +60,6 @@
           <div class="campo-busqueda">
             <input type="text" placeholder="Buscar productos..." class="input-busqueda" [(ngModel)]="textoBusqueda"
               (input)="filtrarProductos()" />
-            <span class="icono-busqueda">🔍</span>
           </div>
 
           <select class="select-categoria" [(ngModel)]="categoriaSeleccionada" (change)="filtrarProductos()">

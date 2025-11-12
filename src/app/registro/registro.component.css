@@ -1,20 +1,21 @@
 /*  Estilos generales  */
 body {
-  font-family: "Segoe UI", sans-serif;
+ font-family: "Segoe UI", sans-serif;
   background-color: #e9fdf0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
   margin: 0;
   color: #333;
+  min-height: 100vh;
+  /* quitar centrado vertical que corta contenido: */
+  display: block;
 }
 
 /* Contenedor principal  */
 .login-container {
   width: 100%;
-  max-width: 500px; /* Limita el ancho del login */
+  max-width: 700px;    
+  margin: 24px auto;    
+  padding: 0 16px;      
+  box-sizing: border-box;
   text-align: center;
 }
 
@@ -48,14 +49,15 @@ pasa el cursor*/
   margin-bottom: 20px;
   text-align: center;
   margin-left: -80px; /*para correr un a la izquierda el icono y el "naturalsamada y farmacia naturista"*/
+  
 }
 
 /*icnono principal*/
 .brand-icon img {
-   width: 50px;        /* ajusta el tamaño del logo */
+   width: 56px;        /* ajusta el tamaño del logo */
   height: auto;
-  display: block;      /* puedes quitarlo si quieres mantener proporción natural */
-  margin: 0 auto 10 px;
+  display: block;      
+  margin: 0 auto;
 }
 
 .brand-text h2 {

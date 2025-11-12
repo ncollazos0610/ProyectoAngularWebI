@@ -159,10 +159,10 @@ h3 {
 .btn.ghost {
   border: 1px solid #fff;
   color: #fff;
-  padding: 0.4rem 0.2rem;
+  padding: 0.4rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
-  background: tra;
+  background: transparent;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;

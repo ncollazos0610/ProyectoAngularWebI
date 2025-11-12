@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Poppins, sans-serif;
   background: #f9fafb;
@@ -35,12 +41,10 @@ body {
   margin-left: 1rem;
 }
 
-/* AGRUPADOR derecho: agrupa nav + botones y lo empuja a la derecha */
 .menu-right {
   display: flex;
   align-items: center;
   gap: 28px;
-  margin-left: auto;
   margin-left: auto;
 }
 
@@ -66,16 +70,16 @@ body {
 }
 
 .nav-link {
-  color: #ffffff;
+  color: #f1f1f1;
   text-decoration: none;
-  padding: 6px 0;
-  font-size: 0.98rem;
-  transition: color 0.18s ease;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #8bc34a;
+  color: #4caf50;
 }
 
 /* AUTH (botones) */
@@ -103,6 +107,7 @@ body {
   height: 50px;
   width: auto;
   border-style: none;
+  background: transparent;
 }
 
 .car-img {
@@ -154,16 +159,34 @@ body {
   color: #4CAF50;
 }
 
-/* AUTH BUTTONS */
-.auth {
-  display: flex;
-  gap: 0.8rem;
+/* ---------------- BOTONES ---------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.btn-primary {
+  background-color: #16a34a;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #15803d;
 }
 
 .btn.ghost {
   border: 1px solid #fff;
   color: #fff;
-  padding: 0.4rem 0.2rem;
+  padding: 0.4rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
   background: tra;
@@ -179,6 +202,65 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
+.btn.primary {
+  background: #8bc34a;
+  color: #fff;
+  border: none;
+}
+
+.btn.primary:hover {
+  background: #6fa832;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+}
+
+.btn-outline:hover {
+  background: linear-gradient(135deg, #45a049, #246b47);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.btn-outline:active {
+  transform: scale(0.96);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline :focus {
+  outline: 3px solid #a5d6a7;
+  outline-offset: 4px;
+}
+
+.btn-outline-card {
+  border: 2px solid white;
+  background: linear-gradient(135deg, #246b47, #45a049);
+  color: white;
+}
+
+.btn-outline-card:hover {
+  background: linear-gradient(135deg, #45a049, #246b47);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.btn-outline-card:active {
+  transform: scale(0.96);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-card :focus {
+  outline: 3px solid #a5d6a7;
+  outline-offset: 4px;
+}
+/* AUTH BUTTONS */
+.auth {
+  display: flex;
+  gap: 0.8rem;
+}
+
 
 h1 {
   font-size: 28px;
@@ -192,86 +274,6 @@ p.subtitle {
   margin-bottom: 20px;
 }
 
-/* ---------------- BOTONES ---------------- */
-
-
-.btn {
-  border: 1px solid #fff;
-  color: #fff;
-  background: linear-gradient(100deg, #246b47, #45a049);
-  padding: 0.8rem 1.5rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 20px;
-}
-
-.btn:hover {
-  background: linear-gradient(135deg, #45a049, #246b47);
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-}
-
-  
-
-
-  .btn.primary {
-    background: #8bc34a;
-    color: #fff;
-    border: none;
-  }
-
-  .btn.primary:hover {
-    background: #6fa832;
-  }
-
-
-  .btn-outline {
-    border: 2px solid white;
-    background: transparent;
-    color: white;
-  }
-
-  .btn-outline:hover {
-    background: linear-gradient(135deg, #45a049, #246b47);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  }
-
-  .btn-outline:active {
-    transform: scale(0.96);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-
-  .btn-outline :focus {
-    outline: 3px solid #a5d6a7;
-    outline-offset: 4px;
-  }
-
-  .btn-outline-card {
-    border: 2px solid white;
-    background: linear-gradient(135deg, #246b47, #45a049);
-    color: white;
-  }
-
-  .btn-outline-card:hover {
-    background: linear-gradient(135deg, #45a049, #246b47);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  }
-
-  .btn-outline-card:active {
-    transform: scale(0.96);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-
-  .btn-outline-card :focus {
-    outline: 3px solid #a5d6a7;
-    outline-offset: 4px;
-  }
 
 .search-box {
   background: white;

@@ -80,6 +80,7 @@
         [(ngModel)] ="tel"
         name="tel"
         (input)="soloNumeros($event)"
+        maxlength="10"
         >
       <p *ngIf="mensajeTel" style="color: red; font-size: 17px;">{{ mensajeTel }}</p>
 

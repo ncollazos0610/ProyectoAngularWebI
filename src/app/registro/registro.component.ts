@@ -51,6 +51,8 @@ export class RegistroComponent {
     if (!this.tel.trim()) {
       this.mensajeTel = "Por favor ingresar el telefono";
       camposVacios++;
+    }else if(this.tel.length !==10){
+      this.mensajeTel ="El telefono debe tener 10 digitos";
     }
 
     if (!this.password.trim()) {
@@ -90,7 +92,10 @@ export class RegistroComponent {
   }
 
   soloNumeros(event: any): void {
-    const valor = event.target.value.replace(/[^0-9]/g, "");
+    let valor = event.target.value.replace(/[^0-9]/g, "");
+    if(valor.length > 10){
+      valor=valor.slice(0,10);
+    }
     event.target.value = valor;
     this.tel = valor;
   }

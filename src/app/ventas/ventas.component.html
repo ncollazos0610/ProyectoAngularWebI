@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Ventas</title>
+  <link rel="stylesheet" href="ventas.component.css">
+</head>
+<body>
+
+<div class="container">
+
+   <!-- Header -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
+      <div>
+        <h1 class="text-3xl text-gray-900 mb-4">Gestión de Ventas</h1>
+        <p class="text-xl text-gray-600">
+          Administra y registra todas las ventas de la farmacia
+        </p>
+      </div>
+
+      <button class="btn-main" (click)="openDialog()">
+        <span class="icon">+</span> Nueva Venta
+      </button>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <div class="card">
+        <div class="icon">$</div>
+        <div>
+          <p class="subtitle">Ventas Totales</p>
+          <p class="number">{{ totalSales | number }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛒</div>
+        <div>
+          <p class="subtitle">Ventas Completadas</p>
+          <p class="number">{{ completedSales }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">📈</div>
+        <div>
+          <p class="subtitle">Venta Promedio</p>
+          <p class="number">{{ averageSale | number }}</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">📅</div>
+        <div>
+          <p class="subtitle">Ventas Pendientes</p>
+          <p class="number">{{ pendingSales }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="card table-container">
+      <h2 class="table-title">Historial de Ventas</h2>
+
+      <div class="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th>ID Venta</th>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>Productos</th>
+              <th>Método Pago</th>
+              <th>Estado</th>
+              <th class="text-right">Total</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let sale of sales" class="hover-row">
+              <td class="text-green">{{ sale.id }}</td>
+              <td>{{ sale.date }}</td>
+              <td>{{ sale.client }}</td>
+              <td>
+                <div *ngFor="let p of sale.products">
+                  {{ p.name }} x{{ p.quantity }}
+                </div>
+              </td>
+              <td>{{ sale.paymentMethod }}</td>
+              <td>
+                <span class="badge"
+                  [ngClass]="getStatusColor(sale.status)">
+                  {{ sale.status }}
+                </span>
+              </td>
+              <td class="text-right text-green">
+                {{ sale.total | number }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>

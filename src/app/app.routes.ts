@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { TerminoscondicionesComponent } from './terminoscondiciones/terminoscondiciones.component';
+import { VentasComponent } from './ventas/ventas.component';
 
 
 
@@ -18,7 +19,8 @@ export const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'recuperacion', component: RecuperacionComponent},
   { path: 'proveedores', component: ProveedoresComponent},
-  { path: 'terminosCondiciones', component: TerminoscondicionesComponent }
+  { path: 'terminosCondiciones', component: TerminoscondicionesComponent },
+  { path: 'ventas', component: VentasComponent }
 
 
 

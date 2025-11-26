@@ -4,136 +4,182 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gestión de Ventas</title>
-  <link rel="stylesheet" href="ventas.component.css">
+  <link rel="stylesheet" href="ventas.component.css" />
 </head>
-<body>
- <!-- HEADER -->
+
+<body class="min-h-screen bg-gray-50">
+
+  <!-- ============ HEADER INTEGRADO ============ -->
   <header class="header">
     <div class="container header-content">
+
       <!-- Logo -->
       <div class="logo">
         <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
         <p class="brand-name">Natural's Samada</p>
       </div>
 
-      <!-- Checkbox oculto -->
+      <!-- Checkbox menú móvil -->
       <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
 
-      <!-- Label actúa como botón hamburguesa -->
+      <!-- Icono menú -->
       <label for="menu-toggle" class="menu-icon">☰</label>
 
-      <!-- Menú + Botones agrupados -->
+      <!-- Menú -->
       <div class="menu-right">
         <nav class="nav">
-          <a routerLink="/" class="nav-link">Inicio</a>
-          <a routerLink="/productos" class="nav-link">Productos</a>
-          <a routerLink="/clientes" class="nav-link">Clientes</a>
-          <a routerLink="/proveedores" class="nav-link active">Proveedores</a>
-          <a routerLink="/ventas" class="nav-link">Ventas</a>
+          <a routerLink="/" routerLinkActive="active" class="nav-link">Inicio</a>
+          <a routerLink="/productos" routerLinkActive="active" class="nav-link">Productos</a>
+          <a routerLink="/clientes" routerLinkActive="active" class="nav-link">Clientes</a>
+          <a routerLink="/proveedores" routerLinkActive="active" class="nav-link">Proveedores</a>
+          <a routerLink="/ventas" routerLinkActive="active" class="nav-link">Ventas</a>
         </nav>
+
+        <!-- Botones de autenticación -->
         <div class="auth">
-          <a routerLink="/login" class="btn ghost">Iniciar Sesión</a>
-          <a routerLink="/registro" class="btn ghost">Registrarse</a>
+          <a routerLink="/login" routerLinkActive="active" class="nav-link btn ghost">Iniciar Sesión</a>
+          <a routerLink="/registro" routerLinkActive="active" class="nav-link btn ghost">Registrarse</a>
+
           <div class="logo">
-            <a routerLink="/carrito">
-              <img src="/car.png" alt="Carrito" class="car-img" />
-            </a>
+            <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
           </div>
         </div>
       </div>
     </div>
   </header>
-<div class="container">
 
-   <!-- Header -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
+  <!-- ============ CONTENIDO DE VENTAS ORIGINAL (RESPETADO) ============ -->
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <div class="container">
+
+      <header class="ventas-header">
+        <div>
+          <h1>Gestión de Ventas</h1>
+          <p>Administra y registra todas las ventas de la farmacia</p>
+        </div>
+
+        <button class="btn-primary">+ Nueva Venta</button>
+      </header>
+
+      <!-- ESTADÍSTICAS -->
+      <section class="stats-grid">
+        <div class="card stat-card">
+          <span class="icon">$</span>
+          <div>
+            <p class="label">Ventas Totales</p>
+            <p class="value">$2,894,000</p>
+          </div>
+        </div>
+
+        <div class="card stat-card">
+          <span class="icon">🛒</span>
+          <div>
+            <p class="label">Completadas</p>
+            <p class="value">4</p>
+          </div>
+        </div>
+
+        <div class="card stat-card">
+          <span class="icon">📈</span>
+          <div>
+            <p class="label">Venta Promedio</p>
+            <p class="value">$723,000</p>
+          </div>
+        </div>
+
+        <div class="card stat-card">
+          <span class="icon">📅</span>
+          <div>
+            <p class="label">Pendientes</p>
+            <p class="value">1</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LISTA DE VENTAS -->
+      <section class="card sales-list">
+        <h2>Historial de Ventas</h2>
+
+        <!-- Venta 1 -->
+        <div class="sale-item">
+          <div class="sale-header">
+            <span class="sale-id">V001</span>
+            <span class="sale-date">2024-09-22</span>
+          </div>
+
+          <div class="sale-body">
+            <p><strong>Cliente:</strong> María García</p>
+
+            <div class="product-list">
+              <span>Ginkgo x2</span>
+              <span>Té Verde x1</span>
+            </div>
+
+            <p><strong>Método:</strong> Tarjeta</p>
+          </div>
+
+          <div class="sale-footer">
+            <span class="badge green">Completada</span>
+            <span class="total">$734</span>
+          </div>
+        </div>
+
+        <!-- Venta 2 -->
+        <div class="sale-item">
+          <div class="sale-header">
+            <span class="sale-id">V004</span>
+            <span class="sale-date">2024-09-21</span>
+          </div>
+
+          <div class="sale-body">
+            <p><strong>Cliente:</strong> Luis Torres</p>
+
+            <div class="product-list">
+              <span>Manzanilla x4</span>
+            </div>
+
+            <p><strong>Método:</strong> Tarjeta</p>
+          </div>
+
+          <div class="sale-footer">
+            <span class="badge yellow">Pendiente</span>
+            <span class="total">$500</span>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER INTEGRADO ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
       <div>
-        <h1 class="text-3xl text-gray-900 mb-4">Gestión de Ventas</h1>
-        <p class="text-xl text-gray-600">
-          Administra y registra todas las ventas de la farmacia
-        </p>
+        <h3>Información de Contacto</h3>
+        <p>📞 +57 3166412518</p>
+        <p>📧 samadagmail.com</p>
+        <p>📍 Popayán, Cauca</p>
       </div>
 
-      <button class="btn-main" (click)="openDialog()">
-        <span class="icon">+</span> Nueva Venta
-      </button>
-    </div>
-
-    <!-- Estadísticas -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-      <div class="card">
-        <div class="icon">$</div>
-        <div>
-          <p class="subtitle">Ventas Totales</p>
-          <p class="number">{{ totalSales | number }}</p>
-        </div>
+      <div>
+        <h3>Horarios de Atención</h3>
+        <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+        <p>Sábados: 9:00 AM - 6:00 PM</p>
       </div>
 
-      <div class="card">
-        <div class="icon">🛒</div>
-        <div>
-          <p class="subtitle">Ventas Completadas</p>
-          <p class="number">{{ completedSales }}</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="icon">📈</div>
-        <div>
-          <p class="subtitle">Venta Promedio</p>
-          <p class="number">{{ averageSale | number }}</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="icon">📅</div>
-        <div>
-          <p class="subtitle">Ventas Pendientes</p>
-          <p class="number">{{ pendingSales }}</p>
-        </div>
+      <div>
+        <h3>Natural's SAMADA</h3>
+        <p>El mejor socio para un plan de vida saludable</p>
+        <p class="licencia">Licencia sanitaria: COFEPRIS-123456</p>
       </div>
     </div>
 
-    <!-- Tabla -->
-    <div class="card table-container">
-      <h2 class="table-title">Historial de Ventas</h2>
-
-      <div class="overflow-x-auto">
-        <table>
-          <thead>
-            <tr>
-              <th>ID Venta</th>
-              <th>Fecha</th>
-              <th>Cliente</th>
-              <th>Productos</th>
-              <th>Método Pago</th>
-              <th>Estado</th>
-              <th class="text-right">Total</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr *ngFor="let sale of sales" class="hover-row">
-              <td class="text-green">{{ sale.id }}</td>
-              <td>{{ sale.date }}</td>
-              <td>{{ sale.client }}</td>
-              <td>
-                <div *ngFor="let p of sale.products">
-                  {{ p.name }} x{{ p.quantity }}
-                </div>
-              </td>
-              <td>{{ sale.paymentMethod }}</td>
-              <td>
-                <span class="badge"
-                  [ngClass]="getStatusColor(sale.status)">
-                  {{ sale.status }}
-                </span>
-              </td>
-              <td class="text-right text-green">
-                {{ sale.total | number }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="footer-bottom">
+      <p>© 2024 Natural's Samada Farmacia Naturista. Todos los derechos reservados.</p>
     </div>
+  </footer>
+
+</body>
+</html>

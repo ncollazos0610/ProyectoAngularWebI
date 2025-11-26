@@ -1,126 +1,203 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de Productos</title>
+    <link rel="stylesheet" href="productos.component.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo de Productos</title>
-  <link rel="stylesheet" href="productos.component.css" />
+  <body class="min-h-screen bg-gray-50 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- HEADER -->
+      <header class="header">
+        <div class="container header-content">
+          <!-- Logo -->
+          <div class="logo">
+            <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
+            <p class="brand-name">Natural's Samada</p>
+          </div>
 
-</head>
+          <!-- Checkbox oculto -->
+          <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
 
-<body class="min-h-screen bg-gray-50 py-8">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- HEADER -->
-    <header class="header">
-      <div class="container header-content">
-        <!-- Logo -->
-        <div class="logo">
-          <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
-          <p class="brand-name">Natural's Samada</p>
-        </div>
+          <!-- Icono de menú -->
+          <label for="menu-toggle" class="menu-icon">☰</label>
 
-        <!-- Checkbox oculto -->
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+          <!-- Menú de navegación -->
+          <div class="menu-right">
+            <nav class="nav">
+              <a routerLink="/" routerLinkActive="active" class="nav-link"
+                >Inicio</a
+              >
+              <a
+                routerLink="/productos"
+                routerLinkActive="active"
+                class="nav-link"
+                >Productos</a
+              >
+              <a
+                routerLink="/clientes"
+                routerLinkActive="active"
+                class="nav-link"
+                >Clientes</a
+              >
+              <a
+                routerLink="/proveedores"
+                routerLinkActive="active"
+                class="nav-link"
+                >Proveedores</a
+              >
+              <a routerLink="/ventas" routerLinkActive="active" class="nav-link"
+                >Ventas</a
+              >
+            </nav>
 
-        <!-- Icono de menú -->
-        <label for="menu-toggle" class="menu-icon">☰</label>
+            <!-- Botones de autenticación -->
+            <div class="auth">
+              <a
+                routerLink="/login"
+                routerLinkActive="active"
+                class="nav-link btn ghost"
+                >Iniciar Sesión</a
+              >
+              <a
+                routerLink="/registro"
+                routerLinkActive="active"
+                class="nav-link btn ghost"
+                >Registrarse</a
+              >
 
-        <!-- Menú de navegación -->
-        <div class="menu-right">
-          <nav class="nav">
-            <a routerLink="/" routerLinkActive="active" class="nav-link">Inicio</a>
-            <a routerLink="/productos" routerLinkActive="active" class="nav-link">Productos</a>
-            <a routerLink="/clientes" routerLinkActive="active" class="nav-link">Clientes</a>
-            <a routerLink="/proveedores" routerLinkActive="active" class="nav-link">Proveedores</a>
-            <a routerLink="/ventas" routerLinkActive="active" class="nav-link">Ventas</a>
-          </nav>
-
-          <!-- Botones de autenticación -->
-          <div class="auth">
-            <a routerLink="/login" routerLinkActive="active" class="nav-link btn ghost">Iniciar Sesión</a>
-            <a routerLink="/registro" routerLinkActive="active" class="nav-link btn ghost">Registrarse</a>
-
-            <div class="logo">
-              <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
+              <div class="logo">
+                <a href="#"
+                  ><img src="/car.png" alt="Carrito" class="car-img"
+                /></a>
+              </div>
             </div>
           </div>
         </div>
+      </header>
+      <!-- PANEL CARRITO -->
+      <div *ngIf="mostrarCarrito" class="carrito-panel">
+        <div class="carrito-header">
+          <h2>🛒 Carrito</h2>
+          <button class="cerrar-btn" (click)="toggleCarrito()">✖</button>
+        </div>
+
+        <div class="carrito-items">
+          <div *ngFor="let item of carrito" class="carrito-item">
+            <img
+              [src]="item.imagen"
+              alt="{{ item.nombre }}"
+              class="carrito-img"
+            />
+
+            <div class="carrito-info">
+              <p class="item-nombre">{{ item.nombre }}</p>
+              <p class="item-precio">${{ item.precio | number }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carrito-footer">
+          <h3>Total: ${{ getTotal() | number }}</h3>
+        </div>
       </div>
-    </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="productos-main">
-      <section class="catalogo">
-        <h1 class="titulo">Catálogo de Productos</h1>
-        <p class="subtitulo">Descubre nuestra amplia gama de productos naturales para tu bienestar</p>
+      <!-- CONTENIDO PRINCIPAL -->
+      <main class="productos-main">
+        <section class="catalogo">
+          <h1 class="titulo">Catálogo de Productos</h1>
+          <p class="subtitulo">
+            Descubre nuestra amplia gama de productos naturales para tu
+            bienestar
+          </p>
 
-        <!-- Filtros -->
-        <div class="filtros">
-          <div class="campo-busqueda">
-            <input type="text" placeholder="Buscar productos..." class="input-busqueda" [(ngModel)]="textoBusqueda"
-              (input)="filtrarProductos()" />
+          <!-- Filtros -->
+          <div class="filtros">
+            <div class="campo-busqueda">
+              <input
+                type="text"
+                placeholder="Buscar productos..."
+                class="input-busqueda"
+                [(ngModel)]="textoBusqueda"
+                (input)="filtrarProductos()"
+              />
+            </div>
+
+            <select
+              class="select-categoria"
+              [(ngModel)]="categoriaSeleccionada"
+              (change)="filtrarProductos()"
+            >
+              <option>Todas las categorías</option>
+              <option>Goteros</option>
+              <option>Pastilleros</option>
+              <option>Aceites esenciales</option>
+              <option>Suplementos</option>
+              <option>Tés e infusiones</option>
+              <option>Jarabes</option>
+            </select>
           </div>
 
-          <select class="select-categoria" [(ngModel)]="categoriaSeleccionada" (change)="filtrarProductos()">
-            <option>Todas las categorías</option>
-            <option>Goteros</option>
-            <option>Pastilleros</option>
-            <option>Aceites esenciales</option>
-            <option>Suplementos</option>
-            <option>Tés e infusiones</option>
-            <option>Jarabes</option>
-          </select>
-        </div>
-
-        <!-- Productos -->
-        <div id="productos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          <div class="card" *ngFor="let p of productosFiltrados">
-            <img [src]="p.imagen" [alt]="p.nombre">
-            <span class="badge">-{{ p.descuento }}%</span>
-            <h3 class="product-name">{{ p.nombre }}</h3>
-            <p class="price">${{ p.precio | number }}</p>
-            <button class="btn btn-outline-card">Agregar al Carrito</button>
+          <!-- Productos -->
+          <div
+            id="productos-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          >
+            <div class="card" *ngFor="let p of productosFiltrados">
+              <img [src]="p.imagen" [alt]="p.nombre" />
+              <span class="badge">-{{ p.descuento }}%</span>
+              <h3 class="product-name">{{ p.nombre }}</h3>
+              <p class="price">${{ p.precio | number }}</p>
+              <button
+                class="btn btn-outline-card"
+                (click)="agregarAlCarrito(p)"
+              >
+                Agregar al Carrito
+              </button>
+            </div>
           </div>
+
+          <p class="resultados">
+            Mostrando {{ productosFiltrados.length }} de
+            {{ productos.length }} productos
+          </p>
+        </section>
+      </main>
+    </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-grid">
+        <!-- Información de contacto -->
+        <div>
+          <h3>Información de Contacto</h3>
+          <p>📞 +57 3166412518</p>
+          <p>📧 samadagmail.com</p>
+          <p>📍 Popayán, Cauca</p>
         </div>
 
-        <p class="resultados">
-          Mostrando {{ productosFiltrados.length }} de {{ productos.length }} productos
+        <!-- Horarios -->
+        <div>
+          <h3>Horarios de Atención</h3>
+          <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+          <p>Sábados: 9:00 AM - 6:00 PM</p>
+        </div>
+
+        <!-- Información adicional -->
+        <div>
+          <h3>Natural's SAMADA</h3>
+          <p>El mejor socio para un plan de vida saludable</p>
+          <p class="licencia">Licencia sanitaria: COFEPRIS-123456</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2024 Natural's Samada Farmacia Naturista. Todos los derechos
+          reservados.
         </p>
-      </section>
-    </main>
-
-  </div>
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <!-- Información de contacto -->
-      <div>
-        <h3>Información de Contacto</h3>
-        <p>📞 +57 3166412518</p>
-        <p>📧 samadagmail.com</p>
-        <p>📍 Popayán, Cauca</p>
       </div>
-
-      <!-- Horarios -->
-      <div>
-        <h3>Horarios de Atención</h3>
-        <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
-        <p>Sábados: 9:00 AM - 6:00 PM</p>
-      </div>
-
-      <!-- Información adicional -->
-      <div>
-        <h3>Natural's SAMADA</h3>
-        <p>El mejor socio para un plan de vida saludable</p>
-        <p class="licencia">Licencia sanitaria: COFEPRIS-123456</p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2024 Natural's Samada Farmacia Naturista. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>

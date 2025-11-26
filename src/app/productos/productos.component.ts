@@ -26,6 +26,10 @@ export class ProductosComponent implements OnInit {
   textoBusqueda: string = '';
   categoriaSeleccionada: string = 'Todas las categorías';
 
+  // 🛒 CARRITO
+  carrito: any[] = [];
+  mostrarCarrito: boolean = false;
+
   // ✅ Inyectamos HttpClient en el constructor
   constructor(private http: HttpClient) {}
 
@@ -33,6 +37,11 @@ export class ProductosComponent implements OnInit {
     // ✅ Evitar error en SSR: solo ejecuta si está en el navegador
     if (typeof window !== 'undefined') {
       this.cargarProductos();
+      // 🛒 Cargar carrito desde localStorage
+      const carritoGuardado = localStorage.getItem('carrito');
+      if (carritoGuardado) {
+        this.carrito = JSON.parse(carritoGuardado);
+      }
     }
   }
 
@@ -59,4 +68,36 @@ export class ProductosComponent implements OnInit {
         (categoria === 'Todas las categorías' || p.categoria === categoria)
     );
   }
+   // 🛒 ABRIR / CERRAR CARRITO
+  toggleCarrito() {
+    this.mostrarCarrito = !this.mostrarCarrito;
+  }
+  // 🛒 AÑADIR AL CARRITO
+  agregarAlCarrito(producto: Producto) {
+    const existe = this.carrito.find((item) => item.nombre === producto.nombre);
+
+    if (existe) {
+      existe.cantidad++;
+    } else {
+      this.carrito.push({
+        ...producto,
+        cantidad: 1
+      });
+    }
+
+    this.guardarCarrito();
+  }
+    // 💾 Guardar en localStorage
+  guardarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify(this.carrito));
+  }
+
+  // 💰 Calcular total
+  getTotal() {
+    return this.carrito.reduce(
+      (total, item) => total + item.precio * item.cantidad,
+      0
+    )
+  };
+
 }

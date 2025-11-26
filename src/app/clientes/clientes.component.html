@@ -1,107 +1,167 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión de Clientes</title>
-  <link rel="stylesheet" href="clientes.component.css">
-</head>
-<body>
-  <!-- HEADER -->
-<header class="header">
-  <div class="container header-content">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
-      <p class="brand-name">Natural's Samada</p>
-    </div>
-
-       <!-- Checkbox oculto -->
-    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-
-    <!-- Label actúa como botón hamburguesa -->
-    <label for="menu-toggle" class="menu-icon">☰</label>
-
-    <!-- Menú + Botones agrupados -->
-    <div class="menu-right">
-      <nav class="nav">
-            <a routerLink="/" class="nav-link" routerLinkActive="active">Inicio</a>
-            <a routerLink="/productos" class="nav-link" routerLinkActive="active">Productos</a>
-            <a routerLink="/clientes" class="nav-link" routerLinkActive="active">Clientes</a>
-            <a routerLink="/proveedores" class="nav-link" routerLinkActive="active">Proveedores</a>
-            <a routerLink="/ventas" class="nav-link" routerLinkActive="active">Ventas</a>
-      </nav>
-      <div class="auth">
-        <a routerLink="/login" class="nav-link" routerLinkActive="active" class="btn ghost">Iniciar Sesión</a>
-        <a routerLink="/registro" routerLinkActive="active" class="btn ghost" >Registrarse</a>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Clientes</title>
+    <link rel="stylesheet" href="clientes.component.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header-content">
+        <!-- Logo -->
         <div class="logo">
-          <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
+          <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
+          <p class="brand-name">Natural's Samada</p>
         </div>
 
-      </div>
-    </div>
-  </div>
-</header>
-  <div class="container">
-    <!-- Header -->
-    <h1>Gestión de Clientes</h1>
-    <p class="subtitle">Administra tu base de clientes registrados</p>
-    <button class="btn btn-primary">+ Nuevo Cliente</button>
+        <!-- Checkbox oculto -->
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
 
-    <!-- Búsqueda -->
-    <div class="search-box">
-      <input type="text" placeholder="Buscar clientes por nombre o email...">
-    </div>
+        <!-- Botón hamburguesa -->
+        <label for="menu-toggle" class="menu-icon">☰</label>
 
-    <!-- Estadísticas -->
-    <div class="stats">
-      <div class="card">
-        <p>Total Clientes</p>
-        <h2>5</h2>
-      </div>
-      <div class="card">
-        <p>Ventas Totales</p>
-        <h2>$17,980</h2>
-      </div>
-    </div>
+        <!-- Menú + Botones -->
+        <div class="menu-right">
+          <nav class="nav">
+            <a routerLink="/" class="nav-link" routerLinkActive="active"
+              >Inicio</a
+            >
+            <a
+              routerLink="/productos"
+              class="nav-link"
+              routerLinkActive="active"
+              >Productos</a
+            >
+            <a routerLink="/clientes" class="nav-link" routerLinkActive="active"
+              >Clientes</a
+            >
+            <a
+              routerLink="/proveedores"
+              class="nav-link"
+              routerLinkActive="active"
+              >Proveedores</a
+            >
+            <a routerLink="/ventas" class="nav-link" routerLinkActive="active"
+              >Ventas</a
+            >
+          </nav>
 
-    <!-- Lista de clientes -->
-    <div class="grid-clients">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">María García López</h3>
-          <span class="badge gray">Activo</span>
-        </div>
-        <div class="client-info">
-          <p>Email: maria.garcia"&#64;"email.com</p>
-          <p>Tel: +57 1234 5678</p>
-          <p>Cliente desde: 2024-01-15</p>
-          <p>Total compras: 15</p>
-          <p>Total gastado: $4,580</p>
-          <p>Última compra: 2024-09-15</p>
-        </div>
-      </div>
+          <div class="auth">
+            <a routerLink="/login" routerLinkActive="active" class="btn ghost"
+              >Iniciar Sesión</a
+            >
+            <a
+              routerLink="/registro"
+              routerLinkActive="active"
+              class="btn ghost"
+              >Registrarse</a
+            >
 
-      <div class="card">
-        <h3 class="card-title">Carlos Rodríguez Méndez</h3>
-        <span class="badge gray">Activo</span>
-        <div class="client-info">
-          <p>Email: carlos.rodriguez"&#64;"email.com</p>
-          <p>Tel: +57 55 9876 5432</p>
-          <p>Cliente desde: 2024-02-20</p>
-          <p>Total compras: 8</p>
-          <p>Total gastado: $2,340</p>
-          <p>Última compra: 2024-09-10</p>
+            <div class="logo">
+              <a href="#">
+                <img src="/car.png" alt="Carrito" class="car-img" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+    </header>
 
-      <!-- Aquí agregar más clientes -->
+    <div class="container">
+      <!-- Título -->
+      <h1>Gestión de Clientes</h1>
+      <p class="subtitle">Administra tu base de clientes registrados</p>
+      <button class="btn btn-primary">+ Nuevo Cliente</button>
+
+      <!-- Búsqueda -->
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Buscar clientes por nombre o email..."
+        />
+      </div>
+
+      <!-- Estadísticas -->
+      <div class="stats">
+        <div class="card">
+          <p>Total Clientes</p>
+          <h2>5</h2>
+        </div>
+        <div class="card">
+          <p>Ventas Totales</p>
+          <h2>$17,980</h2>
+        </div>
+      </div>
+
+      <!-- Lista de clientes -->
+      <div class="grid-clients">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">María García López</h3>
+            <span class="badge gray">Activo</span>
+          </div>
+          <div class="client-info">
+            <p>Email: maria.garcia&#64;email.com</p>
+            <p>Tel: +57 1234 5678</p>
+            <p>Cliente desde: 2024-01-15</p>
+            <p>Total compras: 15</p>
+            <p>Total gastado: $4,580</p>
+            <p>Última compra: 2024-09-15</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Carlos Rodríguez Méndez</h3>
+            <span class="badge gray">Activo</span>
+          </div>
+          <div class="client-info">
+            <p>Email: carlos.rodriguez&#64;email.com</p>
+            <p>Tel: +57 55 9876 5432</p>
+            <p>Cliente desde: 2024-02-20</p>
+            <p>Total compras: 8</p>
+            <p>Total gastado: $2,340</p>
+            <p>Última compra: 2024-09-10</p>
+          </div>
+        </div>
+
+        <!-- Más clientes aquí -->
+      </div>
     </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-grid">
+        <!-- Información de contacto -->
+        <div>
+          <h3>Información de Contacto</h3>
+          <p>📞 +57 3166412518</p>
+          <p>📧 samadagmail.com</p>
+          <p>📍 Popayán, Cauca</p>
+        </div>
 
+        <!-- Horarios -->
+        <div>
+          <h3>Horarios de Atención</h3>
+          <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+          <p>Sábados: 9:00 AM - 6:00 PM</p>
+        </div>
 
-  </div>
-  
-</body>
+        <!-- Información adicional -->
+        <div>
+          <h3>Natural's SAMADA</h3>
+          <p>El mejor socio para un plan de vida saludable</p>
+          <p class="licencia">Licencia sanitaria: COFEPRIS-123456</p>
+        </div>
+      </div>
 
+      <div class="footer-bottom">
+        <p>
+          © 2024 Natural's Samada Farmacia Naturista. Todos los derechos
+          reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>

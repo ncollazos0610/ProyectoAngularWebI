@@ -54,7 +54,7 @@ h3 {
 .brand-name {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #f6fcef;
+  color: #ffffff !important;
   line-height: 2;
   margin-left: 1rem;
 }

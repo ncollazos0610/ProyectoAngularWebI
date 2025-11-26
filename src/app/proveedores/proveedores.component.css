@@ -822,3 +822,32 @@ svg {
   font-size: 14px;
   color: #a7f3d0;
 }
+
+/*nuevo modal pedido*/
+.new-order-modal .modal-content {
+  opacity: 1 !important;
+  background: #fff !important;
+}
+
+.new-order-modal h2,
+.new-order-modal h3,
+.new-order-modal span,
+.new-order-modal label {
+  opacity: 1 !important;
+  color: #000 !important;
+}
+
+.new-order-modal input {
+  opacity: 1 !important;
+  color: #000 !important;
+}
+
+.new-order-modal .order-row {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            
+  margin: 12px 0;
+}
+
+
+

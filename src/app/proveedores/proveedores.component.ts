@@ -33,6 +33,12 @@ export class ProveedoresComponent implements OnInit {
   // Modal
   isModalOpen: boolean = false;
 
+  //variables para nuevoModalPedidos
+  selectedSupplier: Supplier | null = null;
+  orderData: any = {};
+  isOrderModalOpen: boolean = false;
+
+
   // Nuevo proveedor temporal
   newSupplier: any = {
     name: '',
@@ -85,6 +91,12 @@ export class ProveedoresComponent implements OnInit {
 
   filterSuppliers(): void {
     const term = this.searchTerm.toLowerCase();
+
+    if(term ===''){
+      this.filteredSuppliers =[...this.suppliers];
+      return;
+    }
+
     this.filteredSuppliers = this.suppliers.filter(supplier =>
       supplier.name.toLowerCase().includes(term) ||
       supplier.products.some(p => p.toLowerCase().includes(term))
@@ -147,10 +159,22 @@ export class ProveedoresComponent implements OnInit {
 
   newOrder(id: number): void {
     const supplier = this.suppliers.find(s => s.id === id);
-    if (supplier) {
-      alert(`Creando nuevo pedido para ${supplier.name}`);
-    }
+    if (!supplier) return;
+    
+      this.selectedSupplier = supplier;
+
+  this.orderData = {
+    date: new Date().toISOString().substring(0, 10),
+    quantities: supplier.products.reduce((acc, p) => {
+      acc[p] = 0;
+      return acc;
+    }, {} as any)
+  };
+
+  this.isOrderModalOpen = true;
+
   }
+
   getActiveCount(): number {
     return this.suppliers.filter(s => s.status === 'Activo').length;
   }
@@ -169,6 +193,22 @@ export class ProveedoresComponent implements OnInit {
     const filled = '★'.repeat(Math.round(rating));
     const empty = '☆'.repeat(5 - Math.round(rating));
     return filled + empty;
+  }
+
+  confirmOrder(): void {
+  if (!this.selectedSupplier) return;
+
+  this.selectedSupplier.lastOrder = this.orderData.date;
+
+  alert("Pedido registrado con éxito.");
+
+  this.isOrderModalOpen = false;
+  }
+
+  closeOrderModal(event: MouseEvent): void {
+  if ((event.target as HTMLElement).classList.contains('modal')) {
+    this.isOrderModalOpen = false;
+    }
   }
 
   private resetForm(): void {
